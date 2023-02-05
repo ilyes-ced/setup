@@ -1,0 +1,19 @@
+- games lofi
+- simple space game with c++ 2D (openGL)
+- c++ lite minecraft
+- render objects c++
+- simple game in web (simcity or racing)
+- game portfolio, 3js or assembly
+- dart to do app <=====> java slack app
+- dart application
+- java application
+- webasembly rust
+- tauri
+- electron
+- nestjs+svelte+ui_library
+- svletekit
+- webGL
+- AI (unsure) (chess player)
+- cybersecurity (light)
+- HUGO static generator ( wordpress )
+- bun ( still in beta )
