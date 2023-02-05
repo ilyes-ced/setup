@@ -13,9 +13,10 @@ yay --version
 
 ```
 
-# nodejs | npm | php | composer | git
+# nodejs | npm | php | composer | git | python pip
 ```
-sudo pacman -S nodejs npm php composer git
+sudo pacman -S nodejs npm php composer git 
+sudo pacman -S python-pip
 ```
 
 
