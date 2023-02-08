@@ -34,6 +34,10 @@ mysqld --version
 
 sudo systemctl start mysqld // maybe reboot here
 
+sudo rm -rf /var/lib/mysql && mkdir /var/lib/mysql
+
+mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
+
 sudo systemctl status mysqld
 
 sudo systemctl enable mysqld
