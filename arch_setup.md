@@ -1,5 +1,5 @@
 # yay 
-```
+```bash
   
 sudo pacman -S --needed base-devel git
  
@@ -14,19 +14,19 @@ yay --version
 ```
 
 # nodejs | npm | php | composer | git | python pip
-```
+```bash
 sudo pacman -S nodejs npm php composer git 
 sudo pacman -S python-pip
 ```
 
 
 # vscodium
-```
+```bash
 yay -S vscodium-bin
 ```
 
 # mysql mariadb()
-```
+```bash
 
 sudo pacman -S mysql
 
@@ -46,9 +46,9 @@ sudo mysql_secure_installation
 
 sudo mysql
 
-CREATE USER ‘ilyes’@’localhost’ IDENTIFIED BY 'passpass';
+CREATE USER ‘username’@’localhost’ IDENTIFIED BY 'password';
 
-GRANT ALL PRIVILEGES ON *.* TO ‘ilyes’@’localhost’ WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON *.* TO ‘username’@’localhost’ WITH GRANT OPTION;
 
 FLUSH PRIVILEGES;
 
@@ -59,7 +59,7 @@ sudo mysql -p // as root
 sudo -u ilyes -p // as user
 ```
 - mongodb
-```
+```bash
 yay -S mongodb-bin
 
 sudo systemctl start mongodb // maybe reboot
@@ -71,6 +71,8 @@ sudo systemctl enable mongodb
 mongo --version
 
 ```
--
--
--
+
+# libre office
+```bash
+sudo pacman -S libreoffice-still
+```
