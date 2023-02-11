@@ -1,4 +1,9 @@
+- stripe_test with sveltekit
+- flutter chat app with voice php api
+- database creation visualizer and code generator ( maybe with electron svlete / Neutralinojs )
+- gtk
 - games lofi
+- graphql
 - simple space game with c++ 2D (openGL)
 - c++ lite minecraft
 - render objects c++
@@ -17,3 +22,4 @@
 - cybersecurity (light)
 - HUGO static generator ( wordpress )
 - bun ( still in beta )
+- data science
