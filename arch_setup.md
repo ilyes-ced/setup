@@ -13,10 +13,16 @@ yay --version
 
 ```
 
-# nodejs | npm | php | composer | git | python pip
+# installs
 ```bash
-sudo pacman -S nodejs npm php composer git 
-sudo pacman -S python-pip
+sudo pacman -S nodejs npm php composer git python-pip neovim tmux
+
+#tmux plugin manager
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
+# not tested
+git clone https://github.com/noot-noot-pengu/neovim_config nvim && mv -vi ./nvim ~/.config
 ```
 
 
@@ -32,9 +38,9 @@ sudo pacman -S mysql
 
 mysqld --version
 
-sudo systemctl start mysqld // maybe reboot here
+sudo systemctl start mysqld
 
-sudo rm -rf /var/lib/mysql && mkdir /var/lib/mysql
+sudo rm -rf /var/lib/mysql && sudo mkdir /var/lib/mysql
 
 mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
 
