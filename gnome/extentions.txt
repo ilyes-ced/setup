@@ -1,0 +1,11 @@
+blur my shell
+dash to dock
+gnome clipboard
+logo menu
+pop shell
+remove app menu
+top bar organizer
+unite
+user theme
+aylur's widgets
+workspace matrix
