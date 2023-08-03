@@ -704,7 +704,7 @@ StWidget.focused .app-well-app-running-dot {
 }
 
 .calendar .calendar-today:selected {
-  background-color: #ebbcba;
+  background-color: #eb6f92;
   color: rgba(0, 0, 0, 0.87) !important;
 }
 
@@ -2327,7 +2327,14 @@ StEntry StLabel.hint-text,
   box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.25);
   margin: 50px 8px 11px;
   border-radius: 12px;
-  padding: 10px;
+}
+
+
+/*
+  fixes the volume slider not aligned
+*/
+.osd-window > * {
+  padding: 0 !important;
 }
 
 .osd-window {
@@ -2353,10 +2360,7 @@ StEntry StLabel.hint-text,
   -barlevel-border-color: rgba(224, 222, 244, 0.12);
 }
 
-.osd-window .level-bar {
-  background-color: #e0def4;
-  border-radius: 2px;
-}
+
 
 .pad-osd-window {
   padding: 32px;
