@@ -9,3 +9,4 @@ unite
 user theme
 aylur's widgets
 workspace matrix
+Rounded Window Corners
