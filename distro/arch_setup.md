@@ -15,8 +15,9 @@ yay --version
 
 # installs
 ```bash
-sudo pacman -S nodejs npm php composer git python-pip neovim tmux
-
+sudo pacman -S nodejs npm php composer git python-pip neovim tmux ranger ueberzug
+yay -S vscodium-bin
+sudo npm -g typescript pnpm
 #tmux plugin manager
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
@@ -26,10 +27,6 @@ git clone https://github.com/noot-noot-pengu/neovim_config nvim && mv -vi ./nvim
 ```
 
 
-# vscodium
-```bash
-yay -S vscodium-bin
-```
 
 # mysql mariadb()
 ```bash
@@ -76,9 +73,4 @@ sudo systemctl enable mongodb
 
 mongo --version
 
-```
-
-# libre office
-```bash
-sudo pacman -S libreoffice-still
 ```

@@ -15,6 +15,17 @@ env:
   TERM: xterm-256color
   #TERM: xterm-256color
 
+shell:
+  # starts a new tmux session
+  #program: /usr/bin/tmux # <- set this to the path of your tmux installation
+  #args:
+  #  - new-session(auto-gen)
+  #  - -A
+  #  - -D
+  #  - -s
+  #  - main
+
+
 ## Terminal window settings
 window:
   dimensions:
@@ -26,10 +37,10 @@ window:
     y: 10
 
   decorations: none
-  startup_mode: Windowed
+  #startup_mode: Windowed
   dynamic_title: true
   dynamic_padding: true
-  opacity: .8
+  opacity: .9
 
 ## scrolling
   history: 10000
