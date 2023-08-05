@@ -1,28 +1,14 @@
-rose-pine: https://rosepinetheme.com/
+if you plan to use this theme it is better to follow the instructions on the links below
+
+my provided files are the same except the ./themes/rose-pine-shell/gnome-shell/gnome-shell.css
+
+also customized .config/gnome-shell/extentions/popshell config to better suit the gnome-shell theme
 
 
-gnome shell: https://store.kde.org/p/1810542/ or https://addons.videolan.org/p/1810542/
+|   type        | github        | URL  |
+| ------------- |:-------------:| :-----:|
+|color scheme|  https://github.com/rose-pine | https://rosepinetheme.com/ |
+|    gtk     | https://github.com/Fausto-Korpsvart/Rose-Pine-GTK-Theme  | https://www.gnome-look.org/p/1810530/ | |
+| gnome-shell| | https://www.gnome-look.org/p/1810542/ (cusomized in the /gnome/rices/rose-pine/.themes/rose-pine-shell-gnome-shell/gnome-shell.css  |
+|    icons   |   | https://www.gnome-look.org/p/1810549/ |
 
-gnome icons: https://github.com/rose-pine/gtk
-
-
-
-
-
-
-from: https://github.com/Fausto-Korpsvart/Rose-Pine-GTK-Theme
-
-
-
-sudo pacman -S gtk-engine-murrine
-
-gtk: https://www.pling.com/p/1810530
-
-icons: https://www.pling.com/p/1810549
-
-shell: https://www.pling.com/p/1810542
-
-
-
-the other one is better but has too big of a border radius
-gnome gtk: https://github.com/rose-pine/gtk
