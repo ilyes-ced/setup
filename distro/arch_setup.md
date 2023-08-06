@@ -17,7 +17,8 @@ yay --version
 ```bash
 sudo pacman -S nodejs npm php composer git python-pip neovim tmux ranger ueberzug
 yay -S vscodium-bin
-sudo npm -g typescript pnpm
+sudo npm -g install pnpm typescript tailwindcss svelte-language-server
+
 #tmux plugin manager
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
