@@ -1,0 +1,8 @@
+neww
+rename-window 'IDE1'
+new-window -n 'IDE2' 
+new-window -n 'Server1' 
+new-window -n 'Server2' 
+select-window -t 1
+# to go to first window
+next-window

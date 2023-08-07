@@ -1,0 +1,1 @@
+all catppuccin theme are here: https://github.com/Fausto-Korpsvart

@@ -98,6 +98,8 @@ suggestions
 
 ## aditional
 random pokemon on terminal launch: https://github.com/Findarato/pokemon-colorscripts
+
 pipes.sh: yay -S pipes.sh
 
+color scripts: yay -S shell-color-scripts 
 </details>

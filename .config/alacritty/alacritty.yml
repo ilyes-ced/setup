@@ -16,6 +16,8 @@ env:
   #TERM: xterm-256color
 
 shell:
+  # works but doesnt allow new windows to spawn
+
   # starts a new tmux session
   #program: /usr/bin/tmux # <- set this to the path of your tmux installation
   #args:
