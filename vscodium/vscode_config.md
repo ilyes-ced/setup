@@ -33,12 +33,42 @@
             // supposed to change the results of a search but it doesn't work
             "searchEditor.findMatchBorder": "#39FF14"
         },
+        "[Blueberry Banana]": {
+            "editor.background": "#0c0618",
+
+            // idk
+			"tab.activeBorder": "#ff0000",
+			"sideBar.border": "#A115A4",
+			"activityBar.border": "#9e8fa1",
+			"statusBar.border": "#9e8fa1",
+			"minimap.background": "#13111e70",
+			"tab.activeBorderTop": "#4ABEE4",
+			"tab.border": "#9e8fa1",
+			"tab.hoverBackground": "#13111e",
+			"editorSuggestWidget.border" : "#9763E5",
+			"editorBracketMatch.border": "#9763E5",
+			"editor.selectionBackground": "#9763E550",
+			"contrastBorder": "#9e8fa1",
+			"editorGroupHeader.tabsBorder": "#9e8fa1",
+			"editor.lineHighlightBorder": "#A115A4",
+
+            "gitDecoration.modifiedResourceForeground": "#A115A4",
+            "gitDecoration.addedResourceForeground": "#A115A4",
+            "gitDecoration.untrackedResourceForeground": "#A115A4",
+
+            "sideBarSectionHeader.border": "#9e8fa1",
+
+            // supposed to change the results of a search but it doesn't work
+            "searchEditor.findMatchBorder": "#39FF14"
+    
+    
+        }
     },
 
     "explorer.sortOrder": "type",
     "editor.tokenColorCustomizations": {
-        //"comments": "#ff0000"
-        "comments": "#39FF14"
+        "comments": "#ff0000"
+        //"comments": "#39FF14"
     },
     "workbench.editorAssociations": {
         "*.sav": "default",
@@ -67,7 +97,10 @@
 	"workbench.iconTheme": "material-icon-theme",
     "window.menuBarVisibility": "toggle",
     "window.zoomLevel": -2,
-    "workbench.colorTheme": "Rosé Pine",
+    "editor.fontFamily": "'JetBrainsMono Nerd Font'",
+    "editor.codeLensFontFamily": "JetBrainsMono Nerd Font",
+    "editor.fontVariations": false,
+    "workbench.colorTheme": "Blueberry Banana",
 }
 ```
 
