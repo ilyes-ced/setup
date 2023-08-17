@@ -10,21 +10,25 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 
-# class                 border  bground text    indicator child_border
-client.focused          #A115A4 #A115A4 #e3cde6 #A115A4   #A115A4
-client.focused_inactive #9763E5 #9763E5 #e3cde6 #9763E5   #9763E5
-client.unfocused        #0c0618 #0c0618 #BFBFBF #0c0618   #0c0618
-client.urgent           #9763E5 #D12ECB #e3cde6 #D12ECB   #D12ECB
-client.placeholder      #0c0618 #0c0618 #e3cde6 #0c0618   #0c0618
 
-client.background       #e3cde6
+set_from_resource $fg i3wm.color7 #ff0
+set_from_resource $bg i3wm.color2 #ff0
+
+# class                 border  backgr. text indicator child_border
+client.focused          $bg     $bg     $fg  $bg       $bg
+client.focused_inactive $bg     $bg     $fg  $bg       $bg
+client.unfocused        $bg     $bg     $fg  $bg       $bg
+client.urgent           $bg     $bg     $fg  $bg       $bg
+client.placeholder      $bg     $bg     $fg  $bg       $bg
+
+client.background       $bg
 
 
 
 set $mod Mod4
 
-smart_gaps on
-gaps inner 0
+smart_gaps off
+gaps inner 10
 gaps outer 0
 
 
@@ -85,12 +89,14 @@ bindsym $mod+Shift+A kill
 # bindsym $mod+d exec --no-startup-id dmenu_run
 # A more modern dmenu replacement is rofi:
 #bindsym $mod+a exec --no-startup-id ~/.config/rofi/launcher.sh
+rofi -modi drun,run,window -show drun -theme ~/.config/rofi/style.rasi
 
-bindsym $mod+a exec "rofi -modi drun,run,window -show drun -theme ~/.config/rofi/style.rasi"
+bindsym $mod+a exec ""
+#bindsym $mod+a exec "rofi -modi drun,run,window -show drun --theme  ~/.cache/wal/colors-rofi-dark.rasi"
 
 
 
-exec_always --no-startup-id feh --randomize --bg-fill ~/setup/wallpapers
+exec --no-startup-id feh --randomize --bg-fill ~/setup/wallpapers
 exec_always --no-startup-id picom  --config ~/.config/picom/config.conf
 
 exec_always --no-startup-id while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done

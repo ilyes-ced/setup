@@ -1,6 +1,6 @@
 all my config files
 
-## rices
+## gnome rices
 <details>
   <summary>Rose-Pine</summary>
   
@@ -190,5 +190,42 @@ color scripts: yay -S shell-color-scripts
 })();
 
 ```
+
+</details>
+
+
+
+
+
+
+## i3 rices
+
+
+
+
+
+
+<details>
+  <summary>cyberpunk</summary>
+  
+  
+![not_found](/images/i3_cyberpunk1.png)
+![not_found](/images/i3_cyberpunk2.png)
+![not_found](/images/i3_cyberpunk3.png)
+
+
+## duckduckgo
+
+```js
+const theme = [
+	'1=-1', 'at=-1', 'ao=-1', 'aq=-1', 'ak=-1', 'ax=-1', 'av=1', 'ap=-1', 'au=-1', 'ay=b', 'ae=-1', '18=1',
+	'7=0c0618', 'j=0c0618', '9=A115A4', 'x=4ABEE4', 'aa=A39AF0', '8=e3cde6', '21=0c0618',
+];
+
+for (const item of theme) {
+	document.cookie = `${item}; max-age=126144000; samesite=lax; secure`;
+}
+```
+
 
 </details>
