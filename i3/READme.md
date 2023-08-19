@@ -23,3 +23,5 @@ with edited colors
 theme changes with pywal: i3 polybar rofi alacritty firefox vscode 
 
 gtk does not change need to be changed manually
+
+gtk theme need only change the colors.css files manually
