@@ -201,7 +201,7 @@ color scripts: yay -S shell-color-scripts
 ## i3 rices
 
 
-
+for the pywal themes
 
 
 

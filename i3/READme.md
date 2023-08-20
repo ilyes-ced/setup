@@ -22,6 +22,4 @@ with edited colors
 
 theme changes with pywal: i3 polybar rofi alacritty firefox vscode 
 
-gtk does not change need to be changed manually
-
-gtk theme need only change the colors.css files manually
+gtk themes are made to change wqith the rust programme down ther althou its not perfect it does the job better the having to change it manually everytime
