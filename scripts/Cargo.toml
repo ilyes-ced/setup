@@ -14,6 +14,10 @@ path = "src/gtk_theme.rs"
 name = "install"
 path = "src/install.rs"
 
+[[bin]]
+name = "random_theme"
+path = "src/random_theme.rs"
+
 
 
 [dependencies]
