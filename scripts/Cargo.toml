@@ -14,11 +14,6 @@ path = "src/gtk_theme.rs"
 name = "install"
 path = "src/install.rs"
 
-[[bin]]
-name = "random_theme"
-path = "src/random_theme.rs"
-
-
 
 [dependencies]
 serde = { version = "1.0.104", features = ["derive"] }

@@ -98,7 +98,6 @@ fn main() {
     let gg1 = write!(output3, "{}", colors);
     let gg2 = write!(output4, "{}", colors);
 
-    // randomize the pywal wallpaper and backend
 }
 
 fn read_scheme() -> Result<Value, ()> {
