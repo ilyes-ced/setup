@@ -30,6 +30,7 @@ client.background       $bg
 set $mod Mod4
 
 smart_gaps off
+smart_borders off
 gaps inner 10
 gaps outer 0
 
