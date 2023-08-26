@@ -1,8 +1,0 @@
-neww
-rename-window  'IDE'
-new-window -n 'Docs' 
-new-window -n 'Client' 
-new-window -n 'Server' 
-select-window -t 1
-# to go to first window
-next-window
