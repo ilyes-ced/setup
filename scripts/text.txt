@@ -1,0 +1,24 @@
+@define-color color0 #252323;
+@define-color color1 #434141;
+@define-color color2 #615f5f;
+@define-color color3 #7f7d7d;
+@define-color color4 #9d9b9b;
+@define-color color5 #c8c8c8;
+@define-color color6 #bab3b0;
+@define-color color7 #8dbb34;
+@define-color color8 #50a0ac;
+@define-color color9 #5c6caa;
+@define-color color10 #9378a9;
+@define-color color11 #c480b8;
+@define-color color12 #5b5a5a;
+@define-color color13 #797878;
+@define-color color14 #979696;
+
+@define-color text7 #c8c8c870;
+@define-color text5 #c8c8c850;
+@define-color text3 #c8c8c830;
+@define-color text12 #c8c8c812;
+@define-color text1 #c8c8c810;
+@define-color text08 #c8c8c88;
+@define-color text04 #c8c8c84;
+@define-color alt_text #c8c8c8;
