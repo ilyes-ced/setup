@@ -10,7 +10,10 @@ const BRIGHTER_VALUE: i64 = 30;
 
 fn main() {
     // change the colors.css files in ~/.config/gtk-3.0 and gtk-4.0
-    let mut child = std::process::Command::new("sleep").arg("5").spawn().unwrap();
+    let mut child = std::process::Command::new("sleep")
+        .arg("5")
+        .spawn()
+        .unwrap();
 
     let gtk3 = File::open("/home/ilyes/.config/gtk-3.0/colors.css").unwrap();
 
@@ -79,7 +82,6 @@ fn main() {
         color12,
         color13,
         color14,
-    
         color5, 70,
         color5, 50,
         color5, 30,
@@ -97,10 +99,11 @@ fn main() {
     let gg0 = write!(output, "{}", colors);
     let gg1 = write!(output3, "{}", colors);
     let gg2 = write!(output4, "{}", colors);
-
 }
 
 fn read_scheme() -> Result<Value, ()> {
+    // "/home/ilyes/.cache/wal/colors.json" for pywall theming
+    // "/home/ilyes/.json" for pywall theming
     let binding = read_to_string("/home/ilyes/.cache/wal/colors.json").unwrap();
     let colors = binding.as_str();
     let json: Value = from_str(colors).expect("JSON was not well-formatted");
