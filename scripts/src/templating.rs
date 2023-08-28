@@ -1,3 +1,3 @@
 fn main() {
-    
+    // reads files from themes/json and create all the color scheme files for alacritty i3 polybar ...... 
 }
