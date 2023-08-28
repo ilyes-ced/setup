@@ -14,8 +14,16 @@ path = "src/gtk_theme.rs"
 name = "install"
 path = "src/install.rs"
 
+[[bin]]
+name = "fix_json"
+path = "src/fix_json.rs"
+
+[[bin]]
+name = "templating"
+path = "src/templating.rs"
+
 
 [dependencies]
 serde = { version = "1.0.104", features = ["derive"] }
 serde_json = "1.0.48"
-
+handlebars = "4.3.7"
