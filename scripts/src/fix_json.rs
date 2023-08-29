@@ -11,7 +11,7 @@ fn main() {
     // jsons
     let paths = fs::read_dir("./jsons").unwrap();
     for path in paths {
-        let _ = create_json(path.unwrap().path());
+        let _ = create_json(path.unwrap().path()).unwrap();
     }
 
     // propreties
@@ -59,8 +59,17 @@ fn create_json(path: PathBuf) -> Result<(), Box<dyn Error>> {
         }),
     )?;
 
+
+    let binding = [
+            b"jsons_",
+            path.file_name().unwrap().to_str().unwrap().replace(" ", "_").replace("-", "_").to_lowercase().as_str().as_bytes()
+        ]
+        .concat();
+    let pp = String::from_utf8_lossy(
+        &binding,
+    );
     let mut file = File::create(
-        ["themes/json/", path.file_name().unwrap().to_str().unwrap()]
+        ["themes/json/", &pp]
             .iter()
             .collect::<PathBuf>(),
     )?;
@@ -142,9 +151,11 @@ fn create_propreties(path: PathBuf) -> Result<(), Box<dyn Error>> {
 
     // i dont even know it got like this
     // to create the new file with the .json extention
+    let file_name = path.file_stem().unwrap().to_str().unwrap().replace(" ", "_").to_lowercase();
     let pp = String::from_utf8_lossy(
         &[
-            path.file_stem().unwrap().to_str().unwrap().as_bytes(),
+            b"props_",
+            file_name.as_bytes(),
             b".json",
         ]
         .concat(),

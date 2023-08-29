@@ -22,6 +22,10 @@ path = "src/fix_json.rs"
 name = "templating"
 path = "src/templating.rs"
 
+[[bin]]
+name = "change_theme"
+path = "src/change_theme.rs"
+
 
 
 [dependencies]
