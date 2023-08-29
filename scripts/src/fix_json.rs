@@ -159,8 +159,7 @@ fn create_propreties(path: PathBuf) -> Result<(), Box<dyn Error>> {
         .unwrap()
         .replace(" ", "_")
         .to_lowercase();
-    let pp =
-        String::from_utf8_lossy(&[b"p_", file_name.as_bytes(), b".json"].concat()).to_string();
+    let pp = String::from_utf8_lossy(&[b"p_", file_name.as_bytes(), b".json"].concat()).to_string();
     let mut file = File::create(["themes/json/", pp.as_str()].iter().collect::<PathBuf>())?;
     file.write_all(new_json.as_bytes())?;
 

@@ -1,31 +1,31 @@
 colors:
   primary:
-    background: "#000000"
-    foreground: "#ffffff"
+    background: "#000218"
+    foreground: "#7aedf1"
   cursor:
-    text: "#ffffff"
-    cursor: "#555555"
+    text: "#7aedf1"
+    cursor: "#55a5a8"
   vi_mode_cursor:
-    text: "#ffffff"
-    cursor: "#555555"
+    text: "#7aedf1"
+    cursor: "#55a5a8"
   line_indicator:
     foreground: None
     background: None
   normal:
-    black: "#000000"
-    red: "#ff5555"
-    green: "#55ff55"
-    yellow: "#ffff55"
-    blue: "#5555ff"
-    magenta: "#ff55ff"
-    cyan: "#55ffff"
-    white: "#bbbbbb"
+    black: "#000218"
+    red: "#91EE59"
+    green: "#005DA0"
+    yellow: "#0859BB"
+    blue: "#ED02F9"
+    magenta: "#31C7B9"
+    cyan: "#00A1DF"
+    white: "#7aedf1"
   bright:
-    black: "#555555"
-    red: "#ff5555"
-    green: "#55ff55"
-    yellow: "#ffff55"
-    blue: "#5555ff"
-    magenta: "#ff55ff"
-    cyan: "#55ffff"
-    white: "#ffffff"
+    black: "#55a5a8"
+    red: "#91EE59"
+    green: "#005DA0"
+    yellow: "#0859BB"
+    blue: "#ED02F9"
+    magenta: "#31C7B9"
+    cyan: "#00A1DF"
+    white: "#7aedf1"

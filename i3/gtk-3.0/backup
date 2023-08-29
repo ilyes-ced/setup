@@ -1,0 +1,48 @@
+@define-color color0 #0c0618;
+@define-color color1 #3c2e57;
+@define-color color2 #593991;
+@define-color color3 #7c66a5;
+@define-color color4 #a189cb;
+@define-color color5 #e3cde6;
+@define-color color6 #D12ECB;
+@define-color color7 #9763E5;
+@define-color color8 #4ABEE4;
+@define-color color9 #A39AF0;
+@define-color color10 #7bcfeb;
+@define-color color11 #791475;
+@define-color color12 #4d414e;
+@define-color color13 #675d69;
+@define-color color14 #9e8fa1;
+
+@define-color text7 #e3cde670;
+@define-color text5 #e3cde650;
+@define-color text3 #e3cde630;
+@define-color text12 #e3cde612;
+@define-color text1 #e3cde610;
+@define-color text08 #e3cde608;
+@define-color text04 #e3cde604;
+@define-color alt_text #e3cde6;
+
+/* #faf4ed old value for alt_text*/
+
+/*
+
+default colors
+0 --  #191724   ======>     #
+1 --  #1f1d2e   ======>     #
+2 --  #26233a   ======>     #
+3 --  #6e6a86   ======>     #
+4 --  #908caa   ======>     #
+5 --  #e0def4   ======>     #e3cde6
+6 --  #eb6f92   ======>     #D12ECB
+7 --  #f6c177   ======>     #9763E5
+8 --  #ebbcba   ======>     #4ABEE4
+9 --  #31748f   ======>     #A39AF0
+10--  #9ccfd8   ======>     #
+11--  #c4a7e7   ======>     #
+12--  #21202e   ======>     #
+13--  #403d52   ======>     #
+14--  #524f67   ======>     #
+
+*/
+

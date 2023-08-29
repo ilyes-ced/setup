@@ -1,12 +1,24 @@
+use array2d::Array2D;
 use handlebars::Handlebars;
 use rand::seq::{IteratorRandom, SliceRandom};
-use serde_json::{json, Value, from_str};
-use std::{env, fs::{self, read_to_string, File}, os::unix::prelude::OsStrExt, path::Path, process::Command, io::Write};
+use serde_json::{from_str, json, Value};
 use std::iter::FromIterator;
-use tabled::{builder::Builder, settings::{Style, object::Rows, Border, Modify, split::Split}, Table};
-use array2d::Array2D;
+use std::{
+    env,
+    fs::{self, read_to_string, File},
+    io::Write,
+    os::unix::prelude::OsStrExt,
+    path::Path,
+    process::Command,
+};
+use tabled::{
+    builder::Builder,
+    settings::{object::Rows, split::Split, Border, Modify, Style},
+    Table,
+};
 
 mod gtk_theme;
+mod templating;
 
 const MESSAGE: &str = "
     --type=<pywal|custom>
@@ -41,9 +53,9 @@ fn main() {
 fn decide_process(args: Vec<String>, index: usize) {
     if args[index] == "--type=pywal" {
         process_pywal(args);
-    } else if args[index] == "--type=custom"{
+    } else if args[index] == "--type=custom" {
         process_custom(args);
-    }else {
+    } else {
         println!("specifed wrong type");
         println!("{}", MESSAGE);
         std::process::exit(1)
@@ -105,7 +117,8 @@ fn process_pywal(args: Vec<String>) {
     //println!("stderr: {}", String::from_utf8_lossy(&output.stderr));
 
     // here we do the templating with the aquired theme ~/.cache/wal/colors.json
-    let scheme = pywal_json_to_json();
+    pywal_json_to_json();
+    templating::template(None).unwrap();
 }
 
 fn decide_backend(backend: &String) -> &'static str {
@@ -156,62 +169,54 @@ fn decide_wallpaper(wallpaper: &String) -> String {
     }
 }
 
-
-
-fn pywal_json_to_json(){
-    
+fn pywal_json_to_json() {
     let binding = read_to_string("/home/ilyes/.cache/wal/colors.json").unwrap();
     let colors = binding.as_str();
     let s: Value = from_str(colors).expect("JSON was not well-formatted");
 
     let reg = Handlebars::new();
     let template = fs::read_to_string("templates/json.json").unwrap();
-    let new_json = reg.render_template(
-        &template,
-        &json!({
-            "color0": s["colors"]["color0"],
-            "color1": s["colors"]["color1"],
-            "color2": s["colors"]["color2"],
-            "color3": s["colors"]["color3"],
-            "color4": s["colors"]["color4"],
-            "color5": s["colors"]["color5"],
-            "color6": s["colors"]["color6"],
-            "color7": s["colors"]["color7"],
-            "color8": s["colors"]["color8"],
-            "color9": s["colors"]["color9"],
-            "color10": s["colors"]["color10"],
-            "color11": s["colors"]["color11"],
-            "color12": s["colors"]["color12"],
-            "color13": s["colors"]["color13"],
-            "color14": s["colors"]["color14"],
-            "color15": s["colors"]["color15"],
-            "background": s["special"]["background"],
-            "foreground": s["special"]["foreground"],
-            "cursor": s["special"]["cursor"],
-        }),
-    ).unwrap();
+    let new_json = reg
+        .render_template(
+            &template,
+            &json!({
+                "color0": s["colors"]["color0"],
+                "color1": s["colors"]["color1"],
+                "color2": s["colors"]["color2"],
+                "color3": s["colors"]["color3"],
+                "color4": s["colors"]["color4"],
+                "color5": s["colors"]["color5"],
+                "color6": s["colors"]["color6"],
+                "color7": s["colors"]["color7"],
+                "color8": s["colors"]["color8"],
+                "color9": s["colors"]["color9"],
+                "color10": s["colors"]["color10"],
+                "color11": s["colors"]["color11"],
+                "color12": s["colors"]["color12"],
+                "color13": s["colors"]["color13"],
+                "color14": s["colors"]["color14"],
+                "color15": s["colors"]["color15"],
+                "background": s["special"]["background"],
+                "foreground": s["special"]["foreground"],
+                "cursor": s["special"]["cursor"],
+            }),
+        )
+        .unwrap();
     let mut file = File::create("themes/active/active.json").unwrap();
     file.write_all(new_json.as_bytes()).unwrap();
-
 }
-
-
-
-
-
-
 
 fn custom_wallpaper_selection(wallpaper: &String) -> Option<String> {
     let wall = wallpaper.split("=").last().unwrap();
-    if wall == "none"{
+    if wall == "none" {
         None
-    }else{
+    } else {
         let gg = decide_wallpaper(wallpaper);
         Some(gg)
     }
 }
 fn decide_theme_name(theme_name: &str) -> String {
-    if theme_name == "random"{
+    if theme_name == "random" {
         //select random theme
         let mut rng = rand::thread_rng();
         let files = fs::read_dir("/home/ilyes/setup/scripts/themes/json/").unwrap();
@@ -224,7 +229,7 @@ fn decide_theme_name(theme_name: &str) -> String {
             .concat(),
         )
         .to_string()
-    }else{
+    } else {
         let theme = String::from_utf8_lossy(
             &[
                 b"/home/ilyes/setup/scripts/themes/json/",
@@ -233,9 +238,9 @@ fn decide_theme_name(theme_name: &str) -> String {
             .concat(),
         )
         .to_string();
-        if Path::new(&theme).exists(){
-            return theme
-        }else{
+        if Path::new(&theme).exists() {
+            return theme;
+        } else {
             print_table();
             println!("selected theme is unavaillable please select a valid theme");
             std::process::exit(1)
@@ -244,7 +249,6 @@ fn decide_theme_name(theme_name: &str) -> String {
 }
 
 fn process_custom(args: Vec<String>) {
-
     let theme_name = if &args[1][..12] == "--theme_name" {
         decide_theme_name(args[1].split("=").last().unwrap())
     } else if &args[2][..12] == "--theme_name" {
@@ -268,29 +272,26 @@ fn process_custom(args: Vec<String>) {
         //std::process::exit(1)
     };
 
-
     println!(
         "for custom selected\n\twall:{:?}\n\tback:{:?}",
         wallpaper_path, theme_name
     );
 
     //set themes here
-
+    let gg = templating::template(Some(theme_name)).unwrap();
 }
 
-
-
-fn print_table(){
+fn print_table() {
     const rows: usize = 78;
     const cols: usize = 7;
     let mut arr2d: [[&str; cols]; rows] = [[""; cols]; rows];
-    
+
     for i in 0..rows {
         for j in 0..cols {
             arr2d[i][j] = themes_names[i * cols + j];
         }
     }
-    
+
     let mut builder = Builder::default();
     for line in themes_names.iter() {
         if line.is_empty() {
@@ -304,15 +305,11 @@ fn print_table(){
     let columns = (0..builder.count_columns()).map(|i| i.to_string());
     builder.set_header(columns);
 
-    let table = Table::new(arr2d)
-        .with(Style::extended())
-        .to_string();
+    let table = Table::new(arr2d).with(Style::extended()).to_string();
 
     println!("{}", table);
     println!("NOTE: seeing all themes requires fullscreen mode (cant get it to display according to term width (annoying))");
-
 }
-
 
 const themes_names: [&str; 546] = [
     "j_3024_day.json",

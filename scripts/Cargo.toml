@@ -19,10 +19,6 @@ name = "fix_json"
 path = "src/fix_json.rs"
 
 [[bin]]
-name = "templating"
-path = "src/templating.rs"
-
-[[bin]]
 name = "change_theme"
 path = "src/change_theme.rs"
 
