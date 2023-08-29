@@ -59,20 +59,21 @@ fn create_json(path: PathBuf) -> Result<(), Box<dyn Error>> {
         }),
     )?;
 
-
     let binding = [
-            b"jsons_",
-            path.file_name().unwrap().to_str().unwrap().replace(" ", "_").replace("-", "_").to_lowercase().as_str().as_bytes()
-        ]
-        .concat();
-    let pp = String::from_utf8_lossy(
-        &binding,
-    );
-    let mut file = File::create(
-        ["themes/json/", &pp]
-            .iter()
-            .collect::<PathBuf>(),
-    )?;
+        b"jsons_",
+        path.file_name()
+            .unwrap()
+            .to_str()
+            .unwrap()
+            .replace(" ", "_")
+            .replace("-", "_")
+            .to_lowercase()
+            .as_str()
+            .as_bytes(),
+    ]
+    .concat();
+    let pp = String::from_utf8_lossy(&binding);
+    let mut file = File::create(["themes/json/", &pp].iter().collect::<PathBuf>())?;
     file.write_all(new_json.as_bytes())?;
 
     Ok(())
@@ -151,16 +152,15 @@ fn create_propreties(path: PathBuf) -> Result<(), Box<dyn Error>> {
 
     // i dont even know it got like this
     // to create the new file with the .json extention
-    let file_name = path.file_stem().unwrap().to_str().unwrap().replace(" ", "_").to_lowercase();
-    let pp = String::from_utf8_lossy(
-        &[
-            b"props_",
-            file_name.as_bytes(),
-            b".json",
-        ]
-        .concat(),
-    )
-    .to_string();
+    let file_name = path
+        .file_stem()
+        .unwrap()
+        .to_str()
+        .unwrap()
+        .replace(" ", "_")
+        .to_lowercase();
+    let pp =
+        String::from_utf8_lossy(&[b"props_", file_name.as_bytes(), b".json"].concat()).to_string();
     let mut file = File::create(["themes/json/", pp.as_str()].iter().collect::<PathBuf>())?;
     file.write_all(new_json.as_bytes())?;
 

@@ -1,34 +1,31 @@
-use std::{path::PathBuf, fs::{read_to_string, File, self}, io::Write};
-use std::error::Error;
 use handlebars::Handlebars;
 use rand::seq::IteratorRandom;
-use serde_json::{from_str, Value, json};
-
+use serde_json::{from_str, json, Value};
+use std::error::Error;
+use std::{
+    fs::{self, read_to_string, File},
+    io::Write,
+    path::PathBuf,
+};
 
 fn main() -> Result<(), Box<dyn Error>> {
     // reads files from themes/json and create all the color scheme files for alacritty i3 polybar ......
-
 
     // render without register
     let mut rng = rand::thread_rng();
     let files = fs::read_dir("themes/json/").unwrap();
     let file = files.choose(&mut rng).unwrap().unwrap();
-    
-    println!("{}", file.path().display());
-    
-    let json_values = read_scheme_json(&file.path()).unwrap();
 
+    println!("{}", file.path().display());
+
+    let json_values = read_scheme_json(&file.path()).unwrap();
 
     let _ = create_json(&json_values).unwrap();
     let _ = create_alacritty(&json_values).unwrap();
     let _ = create_rofi(&json_values).unwrap();
     let _ = create_polybar(&json_values).unwrap();
     Ok(())
-
 }
-
-
-
 
 fn create_json(s: &Value) -> Result<(), Box<dyn Error>> {
     let reg = Handlebars::new();
@@ -62,10 +59,6 @@ fn create_json(s: &Value) -> Result<(), Box<dyn Error>> {
     Ok(())
 }
 
-
-
-
-
 fn create_alacritty(s: &Value) -> Result<(), Box<dyn Error>> {
     let reg = Handlebars::new();
     let template = fs::read_to_string("templates/alacritty.yml").unwrap();
@@ -97,10 +90,6 @@ fn create_alacritty(s: &Value) -> Result<(), Box<dyn Error>> {
     file.write_all(new_json.as_bytes()).unwrap();
     Ok(())
 }
-
-
-
-
 
 fn create_polybar(s: &Value) -> Result<(), Box<dyn Error>> {
     let reg = Handlebars::new();
@@ -134,8 +123,6 @@ fn create_polybar(s: &Value) -> Result<(), Box<dyn Error>> {
     Ok(())
 }
 
-
-
 fn create_rofi(s: &Value) -> Result<(), Box<dyn Error>> {
     let reg = Handlebars::new();
     let template = fs::read_to_string("templates/rofi.rasi").unwrap();
@@ -168,14 +155,8 @@ fn create_rofi(s: &Value) -> Result<(), Box<dyn Error>> {
     Ok(())
 }
 
-
-
 fn create_gtk() {}
 fn create_i3() {}
-
-
-
-
 
 fn read_scheme_json(path: &PathBuf) -> Result<Value, ()> {
     let binding = read_to_string(path).unwrap();
@@ -188,14 +169,12 @@ fn set_random_wallpaper(wallpaper: Option<&str>) {
     match wallpaper {
         Some(path) => {
             //set wall from path
-        },
+        }
         None => {
             //set random wall
-        },
+        }
     }
 }
-
-
 
 const themes_names: [&str; 544] = [
     "jsons_3024_day.json",

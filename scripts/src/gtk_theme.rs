@@ -8,7 +8,7 @@ const BRIGHTER_VALUE: i64 = 30;
 // foreground is text color5
 // colors
 
-fn main() {
+pub fn main() {
     // change the colors.css files in ~/.config/gtk-3.0 and gtk-4.0
     let mut child = std::process::Command::new("sleep")
         .arg("5")
