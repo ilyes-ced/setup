@@ -36,7 +36,7 @@ pub fn template(theme_name: Option<String>) -> Result<(), Box<dyn Error>> {
 
 fn create_json(s: &Value) -> Result<(), Box<dyn Error>> {
     let reg = Handlebars::new();
-    let template = fs::read_to_string("templates/json.json").unwrap();
+    let template = fs::read_to_string("/home/ilyes/setup/scripts/templates/json.json").unwrap();
     let new_json = reg.render_template(
         &template,
         &json!({
@@ -61,14 +61,14 @@ fn create_json(s: &Value) -> Result<(), Box<dyn Error>> {
             "cursor": s["cursor"],
         }),
     )?;
-    let mut file = File::create("themes/active/active.json").unwrap();
+    let mut file = File::create("/home/ilyes/setup/scripts/themes/active/active.json").unwrap();
     file.write_all(new_json.as_bytes()).unwrap();
     Ok(())
 }
 
 fn create_alacritty(s: &Value) -> Result<(), Box<dyn Error>> {
     let reg = Handlebars::new();
-    let template = fs::read_to_string("templates/alacritty.yml").unwrap();
+    let template = fs::read_to_string("/home/ilyes/setup/scripts/templates/alacritty.yml").unwrap();
     let new_json = reg.render_template(
         &template,
         &json!({
@@ -93,14 +93,14 @@ fn create_alacritty(s: &Value) -> Result<(), Box<dyn Error>> {
             "cursor": s["cursor"],
         }),
     )?;
-    let mut file = File::create("themes/active/alacritty.yml").unwrap();
+    let mut file = File::create("/home/ilyes/setup/scripts/themes/active/alacritty.yml").unwrap();
     file.write_all(new_json.as_bytes()).unwrap();
     Ok(())
 }
 
 fn create_polybar(s: &Value) -> Result<(), Box<dyn Error>> {
     let reg = Handlebars::new();
-    let template = fs::read_to_string("templates/colors.ini").unwrap();
+    let template = fs::read_to_string("/home/ilyes/setup/scripts/templates/colors.ini").unwrap();
     let new_json = reg.render_template(
         &template,
         &json!({
@@ -125,14 +125,14 @@ fn create_polybar(s: &Value) -> Result<(), Box<dyn Error>> {
             "cursor": s["cursor"],
         }),
     )?;
-    let mut file = File::create("themes/active/colors.ini").unwrap();
+    let mut file = File::create("/home/ilyes/setup/scripts/themes/active/colors.ini").unwrap();
     file.write_all(new_json.as_bytes()).unwrap();
     Ok(())
 }
 
 fn create_rofi(s: &Value) -> Result<(), Box<dyn Error>> {
     let reg = Handlebars::new();
-    let template = fs::read_to_string("templates/rofi.rasi").unwrap();
+    let template = fs::read_to_string("/home/ilyes/setup/scripts/templates/rofi.rasi").unwrap();
     let new_json = reg.render_template(
         &template,
         &json!({
@@ -157,14 +157,14 @@ fn create_rofi(s: &Value) -> Result<(), Box<dyn Error>> {
             "cursor": s["cursor"],
         }),
     )?;
-    let mut file = File::create("themes/active/rofi.rasi").unwrap();
+    let mut file = File::create("/home/ilyes/setup/scripts/themes/active/rofi.rasi").unwrap();
     file.write_all(new_json.as_bytes()).unwrap();
     Ok(())
 }
 
 fn create_i3(s: &Value) -> Result<(), Box<dyn Error>>  {
     let reg = Handlebars::new();
-    let template = fs::read_to_string("templates/colors").unwrap();
+    let template = fs::read_to_string("/home/ilyes/setup/scripts/templates/colors").unwrap();
     let new_json = reg.render_template(
         &template,
         &json!({
@@ -189,13 +189,13 @@ fn create_i3(s: &Value) -> Result<(), Box<dyn Error>>  {
             "cursor": s["cursor"],
         }),
     )?;
-    let mut file = File::create("themes/active/colors").unwrap();
+    let mut file = File::create("/home/ilyes/setup/scripts/themes/active/colors").unwrap();
     file.write_all(new_json.as_bytes()).unwrap();
     Ok(())
 }
 fn create_i3_bar(s: &Value) -> Result<(), Box<dyn Error>>  {
     let reg = Handlebars::new();
-    let template = fs::read_to_string("templates/bar_config").unwrap();
+    let template = fs::read_to_string("/home/ilyes/setup/scripts/templates/bar_config").unwrap();
     let new_json = reg.render_template(
         &template,
         &json!({
@@ -204,7 +204,7 @@ fn create_i3_bar(s: &Value) -> Result<(), Box<dyn Error>>  {
             "color3": s["color3"],
         }),
     )?;
-    let mut file = File::create("themes/active/bar_config").unwrap();
+    let mut file = File::create("/home/ilyes/setup/scripts/themes/active/bar_config").unwrap();
     file.write_all(new_json.as_bytes()).unwrap();
     Ok(())
 }
@@ -216,13 +216,3 @@ fn read_scheme_json(path: &Path) -> Result<Value, ()> {
     Ok(json)
 }
 
-fn set_random_wallpaper(wallpaper: Option<&str>) {
-    match wallpaper {
-        Some(path) => {
-            //set wall from path
-        }
-        None => {
-            //set random wall
-        }
-    }
-}
