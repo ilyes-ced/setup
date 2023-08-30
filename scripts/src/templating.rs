@@ -10,30 +10,24 @@ use std::{
 };
 
 pub fn template(theme_name: Option<String>) -> Result<(), Box<dyn Error>> {
-    // sel_type == active ||
     // reads files from themes/json and create all the color scheme files for alacritty i3 polybar ......
-    println!("{:?}", theme_name);
-    match theme_name {
+    let json_values = match theme_name {
         Some(name) => {
-            let json_values = read_scheme_json(&Path::new(&name)).unwrap();
-            let _ = create_json(&json_values).unwrap();
-            let _ = create_alacritty(&json_values).unwrap();
-            let _ = create_rofi(&json_values).unwrap();
-            let _ = create_polybar(&json_values).unwrap();
-            let _ = create_i3(&json_values).unwrap();
+            read_scheme_json(&Path::new(&name)).unwrap()
         }
         None => {
-            let json_values = read_scheme_json(&Path::new(
+            read_scheme_json(&Path::new(
                 "/home/ilyes/setup/scripts/themes/active/active.json",
             ))
-            .unwrap();
-            let _ = create_json(&json_values).unwrap();
-            let _ = create_alacritty(&json_values).unwrap();
-            let _ = create_rofi(&json_values).unwrap();
-            let _ = create_polybar(&json_values).unwrap();
-            let _ = create_i3(&json_values).unwrap();
+            .unwrap()
         }
-    }
+    };
+    let _ = create_json(&json_values).unwrap();
+    let _ = create_alacritty(&json_values).unwrap();
+    let _ = create_rofi(&json_values).unwrap();
+    let _ = create_polybar(&json_values).unwrap();
+    let _ = create_i3(&json_values).unwrap();
+    let _ = create_i3_bar(&json_values).unwrap();
 
     // render without register
 
@@ -199,10 +193,23 @@ fn create_i3(s: &Value) -> Result<(), Box<dyn Error>>  {
     file.write_all(new_json.as_bytes()).unwrap();
     Ok(())
 }
-fn create_gtk() {}
+fn create_i3_bar(s: &Value) -> Result<(), Box<dyn Error>>  {
+    let reg = Handlebars::new();
+    let template = fs::read_to_string("templates/bar_config").unwrap();
+    let new_json = reg.render_template(
+        &template,
+        &json!({
+            "color1": s["color1"],
+            "color2": s["color2"],
+            "color3": s["color3"],
+        }),
+    )?;
+    let mut file = File::create("themes/active/bar_config").unwrap();
+    file.write_all(new_json.as_bytes()).unwrap();
+    Ok(())
+}
 
 fn read_scheme_json(path: &Path) -> Result<Value, ()> {
-    println!("{:?}", path);
     let binding = read_to_string(&path).unwrap();
     let colors = binding.as_str();
     let json: Value = from_str(colors).expect("JSON was not well-formatted");
