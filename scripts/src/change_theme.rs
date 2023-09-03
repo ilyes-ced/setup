@@ -17,6 +17,9 @@ use tabled::{
     Table,
 };
 
+// can be "all" or "favs"
+const THEME_DIR: &str = "favs";
+
 mod gtk_theme;
 mod templating;
 
@@ -220,8 +223,16 @@ fn decide_theme_name(theme_name: &str) -> String {
     if theme_name == "random" {
         //select random theme
         let mut rng = rand::thread_rng();
-        let files = fs::read_dir("/home/ilyes/setup/scripts/themes/json/").unwrap();
-        let file = files.choose(&mut rng).unwrap().unwrap();
+        let file = if THEME_DIR == "favs"{
+            let files = fs::read_dir("/home/ilyes/setup/scripts/themes/favs/").unwrap();
+            files.choose(&mut rng).unwrap().unwrap()
+        }else if THEME_DIR == "favs"{
+            let files = fs::read_dir("/home/ilyes/setup/scripts/themes/json/").unwrap();
+            files.choose(&mut rng).unwrap().unwrap()
+        }else{
+            println!("wrong THEME_DIR",);
+            std::process::exit(1)
+        };
         String::from_utf8_lossy(
             &[
                 b"/home/ilyes/setup/scripts/themes/json/",

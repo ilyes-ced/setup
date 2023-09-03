@@ -198,9 +198,25 @@ fn create_i3_bar(s: &Value) -> Result<(), Box<dyn Error>> {
     let new_json = reg.render_template(
         &template,
         &json!({
+            "color0": s["color0"],
             "color1": s["color1"],
             "color2": s["color2"],
             "color3": s["color3"],
+            "color4": s["color4"],
+            "color5": s["color5"],
+            "color6": s["color6"],
+            "color7": s["color7"],
+            "color8": s["color8"],
+            "color9": s["color9"],
+            "color10": s["color10"],
+            "color11": s["color11"],
+            "color12": s["color12"],
+            "color13": s["color13"],
+            "color14": s["color14"],
+            "color15": s["color15"],
+            "background": s["background"],
+            "foreground": s["foreground"],
+            "cursor": s["cursor"],
         }),
     )?;
     let mut file = File::create("/home/ilyes/setup/scripts/themes/active/bar_config").unwrap();
