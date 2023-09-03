@@ -104,7 +104,7 @@ fn process_pywal(args: Vec<String>) {
         .expect("Failed to execute command");
 
     println!("status: {}", output.status);
-    println!("stdout:\n{}", String::from_utf8_lossy(&output.stdout));
+    println!("stdout: {}", String::from_utf8_lossy(&output.stdout));
     println!("stderr: {}", String::from_utf8_lossy(&output.stderr));
 
     println!("setting the gtk themes\n");
@@ -343,10 +343,15 @@ fn set_wallpaper(wallpaper_path: Option<String>) {
     }
 }
 
-const favs: [&str; 5] = [
+const favs: [&str; 10] = [
     "j_asci",
-    "",
-    "",
+    "j_adventure_time",
+    "j_argonaut",
+    "j_ayu_dark",
+    "j_breath_darker",
+    "j_cai",
+    "j_clone_of_ubuntu",
+    "j_dark_pastel",
     "",
     "",
 ];

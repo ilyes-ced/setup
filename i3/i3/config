@@ -136,9 +136,10 @@ hide_edge_borders none
 ##
 ## Syntax: smart_borders on|off|no_gaps
 
-gaps inner 0 
+gaps inner 5 
 gaps outer 0
 smart_borders on
+smart_gaps on
 #------
 
 ## Don’t focus window upon opening

@@ -28,7 +28,12 @@ pub fn template(theme_name: Option<String>) -> Result<(), Box<dyn Error>> {
     let _ = create_polybar(&json_values).unwrap();
     let _ = create_i3(&json_values).unwrap();
     let _ = create_i3_bar(&json_values).unwrap();
-
+    let _ = create_dwm(&json_values).unwrap();
+    let _ = create_dmenu(&json_values).unwrap();
+    let _ = create_st(&json_values).unwrap();
+    
+    
+    
     // render without register
 
     Ok(())
@@ -208,6 +213,117 @@ fn create_i3_bar(s: &Value) -> Result<(), Box<dyn Error>>  {
     file.write_all(new_json.as_bytes()).unwrap();
     Ok(())
 }
+
+
+
+
+
+
+
+
+
+
+fn create_dwm(s: &Value) -> Result<(), Box<dyn Error>>  {
+    let reg = Handlebars::new();
+    let template = fs::read_to_string("/home/ilyes/setup/scripts/templates/dwm").unwrap();
+    let new_json = reg.render_template(
+        &template,
+        &json!({
+            "color0": s["color0"],
+            "color1": s["color1"],
+            "color2": s["color2"],
+            "color3": s["color3"],
+            "color4": s["color4"],
+            "color5": s["color5"],
+            "color6": s["color6"],
+            "color7": s["color7"],
+            "color8": s["color8"],
+            "color9": s["color9"],
+            "color10": s["color10"],
+            "color11": s["color11"],
+            "color12": s["color12"],
+            "color13": s["color13"],
+            "color14": s["color14"],
+            "color15": s["color15"],
+            "background": s["background"],
+            "foreground": s["foreground"],
+            "cursor": s["cursor"],
+        }),
+    )?;
+    let mut file = File::create("/home/ilyes/Installs/dwm/config.h").unwrap();
+    file.write_all(new_json.as_bytes()).unwrap();
+    Ok(())
+}
+fn create_dmenu(s: &Value) -> Result<(), Box<dyn Error>>  {
+    let reg = Handlebars::new();
+    let template = fs::read_to_string("/home/ilyes/setup/scripts/templates/dmenu").unwrap();
+    let new_json = reg.render_template(
+        &template,
+        &json!({
+            "color0": s["color0"],
+            "color1": s["color1"],
+            "color2": s["color2"],
+            "color3": s["color3"],
+            "color4": s["color4"],
+            "color5": s["color5"],
+            "color6": s["color6"],
+            "color7": s["color7"],
+            "color8": s["color8"],
+            "color9": s["color9"],
+            "color10": s["color10"],
+            "color11": s["color11"],
+            "color12": s["color12"],
+            "color13": s["color13"],
+            "color14": s["color14"],
+            "color15": s["color15"],
+            "background": s["background"],
+            "foreground": s["foreground"],
+            "cursor": s["cursor"],
+        }),
+    )?;
+    let mut file = File::create("/home/ilyes/Installs/dmenu/config.h").unwrap();
+    file.write_all(new_json.as_bytes()).unwrap();
+    Ok(())
+}
+fn create_st(s: &Value) -> Result<(), Box<dyn Error>>  {
+    let reg = Handlebars::new();
+    let template = fs::read_to_string("/home/ilyes/setup/scripts/templates/st").unwrap();
+    let new_json = reg.render_template(
+        &template,
+        &json!({
+            "color0": s["color0"],
+            "color1": s["color1"],
+            "color2": s["color2"],
+            "color3": s["color3"],
+            "color4": s["color4"],
+            "color5": s["color5"],
+            "color6": s["color6"],
+            "color7": s["color7"],
+            "color8": s["color8"],
+            "color9": s["color9"],
+            "color10": s["color10"],
+            "color11": s["color11"],
+            "color12": s["color12"],
+            "color13": s["color13"],
+            "color14": s["color14"],
+            "color15": s["color15"],
+            "background": s["background"],
+            "foreground": s["foreground"],
+            "cursor": s["cursor"],
+        }),
+    )?;
+    let mut file = File::create("/home/ilyes/Installs/st/config.h").unwrap();
+    file.write_all(new_json.as_bytes()).unwrap();
+    Ok(())
+}
+
+
+
+
+
+
+
+
 
 fn read_scheme_json(path: &Path) -> Result<Value, ()> {
     let binding = read_to_string(&path).unwrap();
