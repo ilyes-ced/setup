@@ -18,6 +18,7 @@ use tabled::{
 };
 
 // can be "all" or "favs"
+// favs for my faviourt themes and all for all
 const THEME_DIR: &str = "favs";
 
 mod gtk_theme;
@@ -99,6 +100,7 @@ fn process_pywal(args: Vec<String>) {
 
     let output = Command::new("wal")
         //.arg(format!("--backend {}", backend))
+        .arg("-s")
         .arg("--backend")
         .arg(backend)
         .arg("-i")

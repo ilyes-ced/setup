@@ -4,8 +4,8 @@ set $i3_cl_col_in {{color1}}
 set $i3_cl_col_afoc {{color2}}
 #background for clarity on which window is active
 # this way onlye the active window is borderd and the other windows on vertical
-set $i3_cl_col_ifoc {{background}}
-set $i3_cl_col_ufoc {{foreground}}
+set $i3_cl_col_ifoc {{color1}}
+set $i3_cl_col_ufoc {{color3}}
 set $i3_cl_col_urgt {{color5}}
 set $i3_cl_col_phol {{background}}
 
