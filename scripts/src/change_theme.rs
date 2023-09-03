@@ -235,7 +235,7 @@ fn decide_theme_name(theme_name: &str) -> String {
             &[
                 b"/home/ilyes/setup/scripts/themes/json/",
                 theme_name.as_bytes(),
-                b".json"
+                b".json",
             ]
             .concat(),
         )
@@ -244,7 +244,10 @@ fn decide_theme_name(theme_name: &str) -> String {
             return theme;
         } else {
             print_table();
-            println!("selected theme is unavaillable please select a valid theme:: {}", theme);
+            println!(
+                "selected theme is unavaillable please select a valid theme:: {}",
+                theme
+            );
             std::process::exit(1)
         }
     }
@@ -316,12 +319,9 @@ fn print_table() {
     println!("NOTE: seeing all themes requires fullscreen mode (cant get it to display according to term width (annoying))");
 }
 
-
-
 fn set_wallpaper(wallpaper_path: Option<String>) {
     match wallpaper_path {
         Some(path) => {
-
             let output = Command::new("rm")
                 .arg("/home/ilyes/setup/scripts/themes/active/wallpaper")
                 .output()
@@ -329,7 +329,7 @@ fn set_wallpaper(wallpaper_path: Option<String>) {
             println!("status: {}", output.status);
             println!("stdout:\n{}", String::from_utf8_lossy(&output.stdout));
             println!("stderr: {}", String::from_utf8_lossy(&output.stderr));
-            
+
             let output = Command::new("ln")
                 .arg(path)
                 .arg("/home/ilyes/setup/scripts/themes/active/wallpaper")
@@ -338,12 +338,12 @@ fn set_wallpaper(wallpaper_path: Option<String>) {
             println!("status: {}", output.status);
             println!("stdout:\n{}", String::from_utf8_lossy(&output.stdout));
             println!("stderr: {}", String::from_utf8_lossy(&output.stderr));
-        },
-        None => {},
+        }
+        None => {}
     }
 }
 
-const favs: [&str; 10] = [
+const fav_themes_names: [&str; 33] = [
     "j_asci",
     "j_adventure_time",
     "j_argonaut",
@@ -352,8 +352,31 @@ const favs: [&str; 10] = [
     "j_cai",
     "j_clone_of_ubuntu",
     "j_dark_pastel",
-    "",
-    "",
+    "j_gooey",
+    "j_grape",
+    "j_horizon_dark",
+    "j_morada",
+    "j_rose_pine",
+    "j_spring",
+    "j_sweet_terminal",
+    "j_synthwave_alpha",
+    "p_banana_blueberry",
+    "p_blue_matrix",
+    "p_challengerdeep",
+    "p_cyberpunk",
+    "p_duckbones",
+    "p_floraverse",
+    "p_materialocean",
+    "p_lovelace",
+    "p_lavandula",
+    "p_laser",
+    "nocturnal_winter",
+    "p_neon",
+    "p_shaman",
+    "p_seashells",
+    "p_sakura",
+    "p_underthesea",
+    "p_underthesea",
 ];
 
 const themes_names: [&str; 546] = [

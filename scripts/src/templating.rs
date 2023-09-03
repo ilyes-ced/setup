@@ -12,15 +12,11 @@ use std::{
 pub fn template(theme_name: Option<String>) -> Result<(), Box<dyn Error>> {
     // reads files from themes/json and create all the color scheme files for alacritty i3 polybar ......
     let json_values = match theme_name {
-        Some(name) => {
-            read_scheme_json(&Path::new(&name)).unwrap()
-        }
-        None => {
-            read_scheme_json(&Path::new(
-                "/home/ilyes/setup/scripts/themes/active/active.json",
-            ))
-            .unwrap()
-        }
+        Some(name) => read_scheme_json(&Path::new(&name)).unwrap(),
+        None => read_scheme_json(&Path::new(
+            "/home/ilyes/setup/scripts/themes/active/active.json",
+        ))
+        .unwrap(),
     };
     let _ = create_json(&json_values).unwrap();
     let _ = create_alacritty(&json_values).unwrap();
@@ -31,9 +27,7 @@ pub fn template(theme_name: Option<String>) -> Result<(), Box<dyn Error>> {
     let _ = create_dwm(&json_values).unwrap();
     let _ = create_dmenu(&json_values).unwrap();
     let _ = create_st(&json_values).unwrap();
-    
-    
-    
+
     // render without register
 
     Ok(())
@@ -167,7 +161,7 @@ fn create_rofi(s: &Value) -> Result<(), Box<dyn Error>> {
     Ok(())
 }
 
-fn create_i3(s: &Value) -> Result<(), Box<dyn Error>>  {
+fn create_i3(s: &Value) -> Result<(), Box<dyn Error>> {
     let reg = Handlebars::new();
     let template = fs::read_to_string("/home/ilyes/setup/scripts/templates/colors").unwrap();
     let new_json = reg.render_template(
@@ -198,7 +192,7 @@ fn create_i3(s: &Value) -> Result<(), Box<dyn Error>>  {
     file.write_all(new_json.as_bytes()).unwrap();
     Ok(())
 }
-fn create_i3_bar(s: &Value) -> Result<(), Box<dyn Error>>  {
+fn create_i3_bar(s: &Value) -> Result<(), Box<dyn Error>> {
     let reg = Handlebars::new();
     let template = fs::read_to_string("/home/ilyes/setup/scripts/templates/bar_config").unwrap();
     let new_json = reg.render_template(
@@ -214,16 +208,7 @@ fn create_i3_bar(s: &Value) -> Result<(), Box<dyn Error>>  {
     Ok(())
 }
 
-
-
-
-
-
-
-
-
-
-fn create_dwm(s: &Value) -> Result<(), Box<dyn Error>>  {
+fn create_dwm(s: &Value) -> Result<(), Box<dyn Error>> {
     let reg = Handlebars::new();
     let template = fs::read_to_string("/home/ilyes/setup/scripts/templates/dwm").unwrap();
     let new_json = reg.render_template(
@@ -254,7 +239,7 @@ fn create_dwm(s: &Value) -> Result<(), Box<dyn Error>>  {
     file.write_all(new_json.as_bytes()).unwrap();
     Ok(())
 }
-fn create_dmenu(s: &Value) -> Result<(), Box<dyn Error>>  {
+fn create_dmenu(s: &Value) -> Result<(), Box<dyn Error>> {
     let reg = Handlebars::new();
     let template = fs::read_to_string("/home/ilyes/setup/scripts/templates/dmenu").unwrap();
     let new_json = reg.render_template(
@@ -285,7 +270,7 @@ fn create_dmenu(s: &Value) -> Result<(), Box<dyn Error>>  {
     file.write_all(new_json.as_bytes()).unwrap();
     Ok(())
 }
-fn create_st(s: &Value) -> Result<(), Box<dyn Error>>  {
+fn create_st(s: &Value) -> Result<(), Box<dyn Error>> {
     let reg = Handlebars::new();
     let template = fs::read_to_string("/home/ilyes/setup/scripts/templates/st").unwrap();
     let new_json = reg.render_template(
@@ -317,18 +302,9 @@ fn create_st(s: &Value) -> Result<(), Box<dyn Error>>  {
     Ok(())
 }
 
-
-
-
-
-
-
-
-
 fn read_scheme_json(path: &Path) -> Result<Value, ()> {
     let binding = read_to_string(&path).unwrap();
     let colors = binding.as_str();
     let json: Value = from_str(colors).expect("JSON was not well-formatted");
     Ok(json)
 }
-
