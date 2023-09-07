@@ -3,6 +3,7 @@ use rand::seq::IteratorRandom;
 use serde_json::{from_str, json, Value};
 use std::error::Error;
 use std::path::Path;
+use std::process::Command;
 use std::{
     fs::{self, read_to_string, File},
     io::Write,
@@ -24,9 +25,14 @@ pub fn template(theme_name: Option<String>) -> Result<(), Box<dyn Error>> {
     let _ = create_polybar(&json_values).unwrap();
     let _ = create_i3(&json_values).unwrap();
     let _ = create_i3_bar(&json_values).unwrap();
+    
+    let _ = remove_old_configs().unwrap();
+
     let _ = create_dwm(&json_values).unwrap();
     let _ = create_dmenu(&json_values).unwrap();
     let _ = create_st(&json_values).unwrap();
+
+    let _ = biuld_new_configs().unwrap();
 
     // render without register
 
@@ -251,7 +257,7 @@ fn create_dwm(s: &Value) -> Result<(), Box<dyn Error>> {
             "cursor": s["cursor"],
         }),
     )?;
-    let mut file = File::create("/home/ilyes/Installs/dwm/config.h").unwrap();
+    let mut file = File::create("/home/ilyes/setup/suckless/dwm/config.def.h").unwrap();
     file.write_all(new_json.as_bytes()).unwrap();
     Ok(())
 }
@@ -282,7 +288,7 @@ fn create_dmenu(s: &Value) -> Result<(), Box<dyn Error>> {
             "cursor": s["cursor"],
         }),
     )?;
-    let mut file = File::create("/home/ilyes/Installs/dmenu/config.h").unwrap();
+    let mut file = File::create("/home/ilyes/setup/suckless/dmenu/config.def.h").unwrap();
     file.write_all(new_json.as_bytes()).unwrap();
     Ok(())
 }
@@ -313,7 +319,7 @@ fn create_st(s: &Value) -> Result<(), Box<dyn Error>> {
             "cursor": s["cursor"],
         }),
     )?;
-    let mut file = File::create("/home/ilyes/Installs/st/config.h").unwrap();
+    let mut file = File::create("/home/ilyes/setup/suckless/st/config.def.h").unwrap();
     file.write_all(new_json.as_bytes()).unwrap();
     Ok(())
 }
@@ -323,4 +329,81 @@ fn read_scheme_json(path: &Path) -> Result<Value, ()> {
     let colors = binding.as_str();
     let json: Value = from_str(colors).expect("JSON was not well-formatted");
     Ok(json)
+}
+
+
+
+fn remove_old_configs() -> Result<(), Box<dyn Error>>{
+    let output = Command::new("rm")
+        .arg("config.h")
+        .current_dir("/home/ilyes/setup/suckless/dwm")
+        .output()
+        .expect("Failed to execute command");
+    println!("status: {}", output.status);
+    println!("stdout: {}", String::from_utf8_lossy(&output.stdout));
+    println!("stderr: {}", String::from_utf8_lossy(&output.stderr));
+
+
+    let output = Command::new("rm")
+        .arg("config.h")
+        .current_dir("/home/ilyes/setup/suckless/dmenu")
+        .output()
+        .expect("Failed to execute command");
+    println!("status: {}", output.status);
+    println!("stdout: {}", String::from_utf8_lossy(&output.stdout));
+    println!("stderr: {}", String::from_utf8_lossy(&output.stderr));
+
+
+    let output = Command::new("rm")
+        .arg("config.h")
+        .current_dir("/home/ilyes/setup/suckless/st")
+        .output()
+        .expect("Failed to execute command");
+    println!("status: {}", output.status);
+    println!("stdout: {}", String::from_utf8_lossy(&output.stdout));
+    println!("stderr: {}", String::from_utf8_lossy(&output.stderr));
+    Ok(())
+}
+
+
+
+
+fn biuld_new_configs() -> Result<(), Box<dyn Error>>{
+    let output = Command::new("sudo")
+        .arg("make")
+        .arg("clean")
+        .arg("install")
+        .current_dir("/home/ilyes/setup/suckless/dwm/")
+        .output()
+        .expect("Failed to execute command");
+    println!("status: {}", output.status);
+    println!("stdout: {}", String::from_utf8_lossy(&output.stdout));
+    println!("stderr: {}", String::from_utf8_lossy(&output.stderr));
+    
+
+    let output = Command::new("sudo")
+        .arg("make")
+        .arg("clean")
+        .arg("install")
+        .current_dir("/home/ilyes/setup/suckless/dmenu/")
+        .output()
+        .expect("Failed to execute command");
+    println!("status: {}", output.status);
+    println!("stdout: {}", String::from_utf8_lossy(&output.stdout));
+    println!("stderr: {}", String::from_utf8_lossy(&output.stderr));
+
+
+    let output = Command::new("sudo")
+        .arg("make")
+        .arg("clean")
+        .arg("install")
+        .current_dir("/home/ilyes/setup/suckless/st/")
+        .output()
+        .expect("Failed to execute command");
+    println!("status: {}", output.status);
+    println!("stdout: {}", String::from_utf8_lossy(&output.stdout));
+    println!("stderr: {}", String::from_utf8_lossy(&output.stderr));
+
+    
+    Ok(())
 }
