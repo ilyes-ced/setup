@@ -1,22 +1,22 @@
-set $i3_cl_col_bg #06061b
-set $i3_cl_col_fg #a5a7d0
-set $i3_cl_col_in #e93a95
-set $i3_cl_col_afoc #ed5dad
+set $i3_cl_col_bg #010102
+set $i3_cl_col_fg #9c9d9e
+set $i3_cl_col_in #0e333a
+set $i3_cl_col_afoc #491d3f
 #background for clarity on which window is active
 # this way onlye the active window is borderd and the other windows on vertical
-set $i3_cl_col_ifoc #e93a95
-set $i3_cl_col_ufoc #57acf2
-set $i3_cl_col_urgt #eac443
-set $i3_cl_col_phol #06061b
+set $i3_cl_col_ifoc #0e333a
+set $i3_cl_col_ufoc #313358
+set $i3_cl_col_urgt #2b6f92
+set $i3_cl_col_phol #010102
 
-set $i3_bar_bg #06061b
-set $i3_bar_fg #a5a7d0
+set $i3_bar_bg #010102
+set $i3_bar_fg #9c9d9e
 set $i3_bar_sep #292e39
-set $i3_bar_mod #e93a95
-set $i3_bar_foc #ed5dad
-set $i3_bar_act #57acf2
-set $i3_bar_ina #90afed
-set $i3_bar_urg #eac443
+set $i3_bar_mod #0e333a
+set $i3_bar_foc #491d3f
+set $i3_bar_act #313358
+set $i3_bar_ina #0e5f67
+set $i3_bar_urg #2b6f92
 
 set $i3_bar_fonts JetBrainsMono Nerd Font 10
 

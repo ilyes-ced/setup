@@ -9,9 +9,9 @@ general {
 	markup = "pango"
 	separator = " "
 	colors = true
-	color_good = "#e93a95"
-	color_degraded = "#ed5dad"
-	color_bad = "#57acf2"
+	color_good = "#0e333a"
+	color_degraded = "#491d3f"
+	color_bad = "#313358"
 	color_separator = "#292e39"
 }
 
