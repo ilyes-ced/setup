@@ -20,6 +20,7 @@ use tabled::{
 // can be "all" or "favs"
 // favs for my faviourt themes and all for all
 const THEME_DIR: &str = "favs";
+const BRIGHTER_VALUE: i64 = 30;
 
 mod gtk_theme;
 mod templating;
@@ -182,6 +183,7 @@ fn pywal_json_to_json() {
 
     let reg = Handlebars::new();
     let template = fs::read_to_string("/home/ilyes/setup/scripts/templates/json.json").unwrap();
+    println!("{:#?}", s["colors"]["color8"].as_str().unwrap());
     let new_json = reg
         .render_template(
             &template,
@@ -194,14 +196,14 @@ fn pywal_json_to_json() {
                 "color5": s["colors"]["color5"],
                 "color6": s["colors"]["color6"],
                 "color7": s["colors"]["color7"],
-                "color8": s["colors"]["color8"],
-                "color9": s["colors"]["color9"],
-                "color10": s["colors"]["color10"],
-                "color11": s["colors"]["color11"],
-                "color12": s["colors"]["color12"],
-                "color13": s["colors"]["color13"],
-                "color14": s["colors"]["color14"],
-                "color15": s["colors"]["color15"],
+                "color8": make_bright(s["colors"]["color8"].as_str().unwrap()).unwrap(),
+                "color9": make_bright(s["colors"]["color9"].as_str().unwrap()).unwrap(),
+                "color10": make_bright(s["colors"]["color10"].as_str().unwrap()).unwrap(),
+                "color11": make_bright(s["colors"]["color11"].as_str().unwrap()).unwrap(),
+                "color12": make_bright(s["colors"]["color12"].as_str().unwrap()).unwrap(),
+                "color13": make_bright(s["colors"]["color13"].as_str().unwrap()).unwrap(),
+                "color14": make_bright(s["colors"]["color14"].as_str().unwrap()).unwrap(),
+                "color15": make_bright(s["colors"]["color15"].as_str().unwrap()).unwrap(),
                 "background": s["special"]["background"],
                 "foreground": s["special"]["foreground"],
                 "cursor": s["special"]["cursor"],
@@ -355,6 +357,29 @@ fn set_wallpaper(wallpaper_path: Option<String>) {
         None => {}
     }
 }
+
+fn make_bright(color: &str) -> Result<String, ()> {
+    let r = &color[1..3];
+    let g = &color[3..5];
+    let b = &color[5..7];
+    println!("{} {} {}",r,g,b);
+    let mut r_brt = i64::from_str_radix(r, 16).unwrap() + (BRIGHTER_VALUE);
+    let mut g_brt = i64::from_str_radix(g, 16).unwrap() + (BRIGHTER_VALUE);
+    let mut b_brt = i64::from_str_radix(b, 16).unwrap() + (BRIGHTER_VALUE);
+    if r_brt > 255 {
+        r_brt = 255;
+    }
+    if g_brt > 255 {
+        g_brt = 255;
+    }
+    if b_brt > 255 {
+        b_brt = 255;
+    }
+    println!("result !::::: {}", String::from(format!("{:x}{:x}{:x}", r_brt, g_brt, b_brt)));
+
+    Ok(String::from(format!("#{:x}{:x}{:x}", r_brt, g_brt, b_brt)))
+}
+
 
 const fav_themes_names: [&str; 33] = [
     "j_asci",

@@ -339,9 +339,9 @@ fn remove_old_configs() -> Result<(), Box<dyn Error>>{
         .current_dir("/home/ilyes/setup/suckless/dwm")
         .output()
         .expect("Failed to execute command");
-    println!("status: {}", output.status);
-    println!("stdout: {}", String::from_utf8_lossy(&output.stdout));
-    println!("stderr: {}", String::from_utf8_lossy(&output.stderr));
+    //println!("status: {}", output.status);
+    //println!("stdout: {}", String::from_utf8_lossy(&output.stdout));
+    //println!("stderr: {}", String::from_utf8_lossy(&output.stderr));
 
 
     let output = Command::new("rm")
@@ -349,9 +349,9 @@ fn remove_old_configs() -> Result<(), Box<dyn Error>>{
         .current_dir("/home/ilyes/setup/suckless/dmenu")
         .output()
         .expect("Failed to execute command");
-    println!("status: {}", output.status);
-    println!("stdout: {}", String::from_utf8_lossy(&output.stdout));
-    println!("stderr: {}", String::from_utf8_lossy(&output.stderr));
+    //println!("status: {}", output.status);
+    //println!("stdout: {}", String::from_utf8_lossy(&output.stdout));
+    //println!("stderr: {}", String::from_utf8_lossy(&output.stderr));
 
 
     let output = Command::new("rm")
@@ -359,9 +359,9 @@ fn remove_old_configs() -> Result<(), Box<dyn Error>>{
         .current_dir("/home/ilyes/setup/suckless/st")
         .output()
         .expect("Failed to execute command");
-    println!("status: {}", output.status);
-    println!("stdout: {}", String::from_utf8_lossy(&output.stdout));
-    println!("stderr: {}", String::from_utf8_lossy(&output.stderr));
+    //println!("status: {}", output.status);
+    //println!("stdout: {}", String::from_utf8_lossy(&output.stdout));
+    //println!("stderr: {}", String::from_utf8_lossy(&output.stderr));
     Ok(())
 }
 
@@ -376,9 +376,9 @@ fn biuld_new_configs() -> Result<(), Box<dyn Error>>{
         .current_dir("/home/ilyes/setup/suckless/dwm/")
         .output()
         .expect("Failed to execute command");
-    println!("status: {}", output.status);
-    println!("stdout: {}", String::from_utf8_lossy(&output.stdout));
-    println!("stderr: {}", String::from_utf8_lossy(&output.stderr));
+    //println!("status: {}", output.status);
+    //println!("stdout: {}", String::from_utf8_lossy(&output.stdout));
+    //println!("stderr: {}", String::from_utf8_lossy(&output.stderr));
     
 
     let output = Command::new("sudo")
@@ -388,9 +388,9 @@ fn biuld_new_configs() -> Result<(), Box<dyn Error>>{
         .current_dir("/home/ilyes/setup/suckless/dmenu/")
         .output()
         .expect("Failed to execute command");
-    println!("status: {}", output.status);
-    println!("stdout: {}", String::from_utf8_lossy(&output.stdout));
-    println!("stderr: {}", String::from_utf8_lossy(&output.stderr));
+    //println!("status: {}", output.status);
+    //println!("stdout: {}", String::from_utf8_lossy(&output.stdout));
+    //println!("stderr: {}", String::from_utf8_lossy(&output.stderr));
 
 
     let output = Command::new("sudo")
@@ -400,9 +400,9 @@ fn biuld_new_configs() -> Result<(), Box<dyn Error>>{
         .current_dir("/home/ilyes/setup/suckless/st/")
         .output()
         .expect("Failed to execute command");
-    println!("status: {}", output.status);
-    println!("stdout: {}", String::from_utf8_lossy(&output.stdout));
-    println!("stderr: {}", String::from_utf8_lossy(&output.stderr));
+    //println!("status: {}", output.status);
+    //println!("stdout: {}", String::from_utf8_lossy(&output.stdout));
+    //println!("stderr: {}", String::from_utf8_lossy(&output.stderr));
 
     
     Ok(())

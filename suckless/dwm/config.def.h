@@ -1,6 +1,5 @@
 /* See LICENSE file for copyright and license details. */
 
-
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
@@ -10,13 +9,13 @@ static const char *fonts[]          = { "JetBrains Mono Nerd Font:size=10" };
 static const char dmenufont[]       = "JetBrains Mono Nerd Font:size=10";
 
 
-static const char norm_fg[] = "#a59faa";
-static const char norm_bg[] = "#050308";
-static const char norm_border[] = "#4b4056";
+static const char norm_fg[] = "#cfcccc";
+static const char norm_bg[] = "#100c12";
+static const char norm_border[] = "#aeacac";
 
-static const char sel_fg[] = "#a59faa";
-static const char sel_bg[] = "#461b39";
-static const char sel_border[] = "#a59faa";
+static const char sel_fg[] = "#cfcccc";
+static const char sel_bg[] = "#D0F456";
+static const char sel_border[] = "#cfcccc";
 
 static const char *colors[][3]      = {
     /*               fg           bg         border                         */
@@ -41,20 +40,12 @@ static const Rule rules[] = {
 /* layout(s) */
 static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
-//original 1 
-// for tatami in 0
-static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
+static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
 
-#include "tatami.c"
-#include "gaplessgrid.c"
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[]=",      tile },    /* first entry is default */
-	{ "|+|",      tatami },
-	{ "###",      gaplessgrid },
-	{ "[@]",      spiral },
- 	{ "[\\]",     dwindle },
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
 };
