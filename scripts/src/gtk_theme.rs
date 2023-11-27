@@ -15,7 +15,7 @@ pub fn main() {
         .spawn()
         .unwrap();
 
-    let gtk3 = File::open("/home/ilyes/.config/gtk-3.0/colors.css").unwrap();
+    let gtk3 = File::open("/home/dude/.config/gtk-3.0/colors.css").unwrap();
 
     let reader3 = BufReader::new(gtk3);
 
@@ -94,17 +94,17 @@ pub fn main() {
 
     let path = "text.txt";
     let mut output = File::create(path).unwrap();
-    let mut output3 = File::create("/home/ilyes/.config/gtk-3.0/colors.css").unwrap();
-    let mut output4 = File::create("/home/ilyes/.config/gtk-4.0/colors.css").unwrap();
+    let mut output3 = File::create("/home/dude/.config/gtk-3.0/colors.css").unwrap();
+    let mut output4 = File::create("/home/dude/.config/gtk-4.0/colors.css").unwrap();
     let gg0 = write!(output, "{}", colors);
     let gg1 = write!(output3, "{}", colors);
     let gg2 = write!(output4, "{}", colors);
 }
 
 fn read_scheme() -> Result<Value, ()> {
-    // "/home/ilyes/.cache/wal/colors.json" for pywall theming
-    // "/home/ilyes/.json" for pywall theming
-    let binding = read_to_string("/home/ilyes/.cache/wal/colors.json").unwrap();
+    // "/home/dude/.cache/wal/colors.json" for pywall theming
+    // "/home/dude/.json" for pywall theming
+    let binding = read_to_string("/home/dude/.cache/wal/colors.json").unwrap();
     let colors = binding.as_str();
     let json: Value = from_str(colors).expect("JSON was not well-formatted");
     Ok(json)

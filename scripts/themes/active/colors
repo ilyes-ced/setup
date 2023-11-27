@@ -1,22 +1,22 @@
-set $i3_cl_col_bg #100c12
-set $i3_cl_col_fg #cfcccc
-set $i3_cl_col_in #97A763
-set $i3_cl_col_afoc #D0F456
+set $i3_cl_col_bg #030106
+set $i3_cl_col_fg #a19ca5
+set $i3_cl_col_in #381c74
+set $i3_cl_col_afoc #89219b
 #background for clarity on which window is active
 # this way onlye the active window is borderd and the other windows on vertical
-set $i3_cl_col_ifoc #97A763
-set $i3_cl_col_ufoc #F3FD72
-set $i3_cl_col_urgt #8B7D86
-set $i3_cl_col_phol #100c12
+set $i3_cl_col_ifoc #381c74
+set $i3_cl_col_ufoc #3b6b9d
+set $i3_cl_col_urgt #7952da
+set $i3_cl_col_phol #030106
 
-set $i3_bar_bg #100c12
-set $i3_bar_fg #cfcccc
+set $i3_bar_bg #030106
+set $i3_bar_fg #a19ca5
 set $i3_bar_sep #292e39
-set $i3_bar_mod #97A763
-set $i3_bar_foc #D0F456
-set $i3_bar_act #F3FD72
-set $i3_bar_ina #70578A
-set $i3_bar_urg #8B7D86
+set $i3_bar_mod #381c74
+set $i3_bar_foc #89219b
+set $i3_bar_act #3b6b9d
+set $i3_bar_ina #d41fc1
+set $i3_bar_urg #7952da
 
 set $i3_bar_fonts JetBrainsMono Nerd Font 10
 
@@ -32,7 +32,7 @@ client.background        $i3_cl_col_bg
 bar {
 	status_command i3status -c ~/setup/scripts/themes/active/bar_config
     id main-bar
-    position top
+    position bottom
     mode dock
     hidden_state show
     modifier Mod1

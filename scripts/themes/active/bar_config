@@ -9,18 +9,18 @@ general {
 	markup = "pango"
 	separator = " "
 	colors = true
-	color_good = "#97A763"
-	color_degraded = "#D0F456"
-	color_bad = "#F3FD72"
+	color_good = "#381c74"
+	color_degraded = "#89219b"
+	color_bad = "#3b6b9d"
 	color_separator = "#292e39"
 }
 
 ##-- Modules Order ---------------------
 order += "volume master"
 order += "battery all"
-order += "wireless _first_"
-order += "cpu_usage"
-order += "memory"
+#order += "wireless _first_"
+#order += "cpu_usage"
+#order += "memory"
 order += "disk /"
 order += "time"
 #order += "load"

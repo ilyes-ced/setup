@@ -18,9 +18,9 @@ general {
 ##-- Modules Order ---------------------
 order += "volume master"
 order += "battery all"
-order += "wireless _first_"
-order += "cpu_usage"
-order += "memory"
+#order += "wireless _first_"
+#order += "cpu_usage"
+#order += "memory"
 order += "disk /"
 order += "time"
 #order += "load"
