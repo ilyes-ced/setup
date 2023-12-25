@@ -1,5 +1,4 @@
 use handlebars::Handlebars;
-use rand::seq::IteratorRandom;
 use serde_json::{from_str, json, Value};
 use std::error::Error;
 use std::path::Path;
@@ -7,7 +6,6 @@ use std::process::Command;
 use std::{
     fs::{self, read_to_string, File},
     io::Write,
-    path::PathBuf,
 };
 
 pub fn template(theme_name: Option<String>) -> Result<(), Box<dyn Error>> {
@@ -369,7 +367,7 @@ fn read_scheme_json(path: &Path) -> Result<Value, ()> {
 
 
 fn remove_old_configs() -> Result<(), Box<dyn Error>>{
-    let output = Command::new("rm")
+    let _ = Command::new("rm")
         .arg("config.h")
         .current_dir("/home/dude/setup/suckless/dwm")
         .output()
@@ -379,7 +377,7 @@ fn remove_old_configs() -> Result<(), Box<dyn Error>>{
     //println!("stderr: {}", String::from_utf8_lossy(&output.stderr));
 
 
-    let output = Command::new("rm")
+    let _ = Command::new("rm")
         .arg("config.h")
         .current_dir("/home/dude/setup/suckless/dmenu")
         .output()
@@ -389,7 +387,7 @@ fn remove_old_configs() -> Result<(), Box<dyn Error>>{
     //println!("stderr: {}", String::from_utf8_lossy(&output.stderr));
 
 
-    let output = Command::new("rm")
+    let _ = Command::new("rm")
         .arg("config.h")
         .current_dir("/home/dude/setup/suckless/st")
         .output()
@@ -404,7 +402,7 @@ fn remove_old_configs() -> Result<(), Box<dyn Error>>{
 
 
 fn biuld_new_configs() -> Result<(), Box<dyn Error>>{
-    let output = Command::new("sudo")
+    let _ = Command::new("sudo")
         .arg("make")
         .arg("clean")
         .arg("install")
@@ -416,7 +414,7 @@ fn biuld_new_configs() -> Result<(), Box<dyn Error>>{
     //println!("stderr: {}", String::from_utf8_lossy(&output.stderr));
     
 
-    let output = Command::new("sudo")
+    let _ = Command::new("sudo")
         .arg("make")
         .arg("clean")
         .arg("install")
@@ -428,7 +426,7 @@ fn biuld_new_configs() -> Result<(), Box<dyn Error>>{
     //println!("stderr: {}", String::from_utf8_lossy(&output.stderr));
 
 
-    let output = Command::new("sudo")
+    let _ = Command::new("sudo")
         .arg("make")
         .arg("clean")
         .arg("install")

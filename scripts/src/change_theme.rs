@@ -1,8 +1,6 @@
-use array2d::Array2D;
 use handlebars::Handlebars;
 use rand::seq::{IteratorRandom, SliceRandom};
 use serde_json::{from_str, json, Value};
-use std::iter::FromIterator;
 use std::{
     env,
     fs::{self, read_to_string, File},
@@ -13,7 +11,7 @@ use std::{
 };
 use tabled::{
     builder::Builder,
-    settings::{object::Rows, split::Split, Border, Modify, Style},
+    settings::Style,
     Table,
 };
 
@@ -305,18 +303,18 @@ fn process_custom(args: Vec<String>) {
 }
 
 fn print_table() {
-    const rows: usize = 91;
-    const cols: usize = 6;
-    let mut arr2d: [[&str; cols]; rows] = [[""; cols]; rows];
+    const ROWS: usize = 91;
+    const COLS: usize = 6;
+    let mut arr2d: [[&str; COLS]; ROWS] = [[""; COLS]; ROWS];
 
-    for i in 0..rows {
-        for j in 0..cols {
-            arr2d[i][j] = themes_names[i * cols + j];
+    for i in 0..ROWS {
+        for j in 0..COLS {
+            arr2d[i][j] = THEMES_NAMES[i * COLS + j];
         }
     }
 
     let mut builder = Builder::default();
-    for line in themes_names.iter() {
+    for line in THEMES_NAMES.iter() {
         if line.is_empty() {
             continue;
         }
@@ -381,7 +379,8 @@ fn make_bright(color: &str) -> Result<String, ()> {
 }
 
 
-const fav_themes_names: [&str; 33] = [
+/*
+const FAV_THEMES_NAMES: [&str; 33] = [
     "j_asci",
     "j_adventure_time",
     "j_argonaut",
@@ -416,8 +415,8 @@ const fav_themes_names: [&str; 33] = [
     "p_underthesea",
     "p_underthesea",
 ];
-
-const themes_names: [&str; 546] = [
+*/
+const THEMES_NAMES: [&str; 546] = [
     "j_3024_day",
     "j_3024_night",
     "j_aci",

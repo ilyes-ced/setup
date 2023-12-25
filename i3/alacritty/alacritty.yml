@@ -8,7 +8,7 @@
 import:
     #  - ~/.config/alacritty/rose-pine/rose-pine.yml
     #  - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
-  - ~/.config/alacritty/cyberpunk.yml
+  - ~/setup/scripts/themes/active/alacritty.yml
   - ~/.config/alacritty/fonts.yml
 
 ## Set environment variables

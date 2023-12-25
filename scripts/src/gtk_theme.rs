@@ -1,4 +1,3 @@
-use serde::Deserialize;
 use serde_json::{from_str, Value};
 use std::fs::{read_to_string, File};
 use std::io::{BufRead, BufReader, Write};
@@ -10,7 +9,7 @@ const BRIGHTER_VALUE: i64 = 30;
 
 pub fn main() {
     // change the colors.css files in ~/.config/gtk-3.0 and gtk-4.0
-    let mut child = std::process::Command::new("sleep")
+    let _ = std::process::Command::new("sleep")
         .arg("5")
         .spawn()
         .unwrap();
@@ -96,9 +95,9 @@ pub fn main() {
     let mut output = File::create(path).unwrap();
     let mut output3 = File::create("/home/dude/.config/gtk-3.0/colors.css").unwrap();
     let mut output4 = File::create("/home/dude/.config/gtk-4.0/colors.css").unwrap();
-    let gg0 = write!(output, "{}", colors);
-    let gg1 = write!(output3, "{}", colors);
-    let gg2 = write!(output4, "{}", colors);
+    let _ = write!(output, "{}", colors);
+    let _ = write!(output3, "{}", colors);
+    let _ = write!(output4, "{}", colors);
 }
 
 fn read_scheme() -> Result<Value, ()> {
