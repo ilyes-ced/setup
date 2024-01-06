@@ -60,7 +60,7 @@ window {
     margin:                      0px;
     padding:                     0px;
     border:                      0px solid;
-    border-radius:               12px;
+    border-radius:               0px;
     border-color:                @border-colour;
     cursor:                      "default";
     /* Backgroud Colors */
@@ -110,7 +110,7 @@ prompt {
 textbox-prompt-colon {
     enabled:                     true;
     padding:                     6px 9px;
-    border-radius:               12px;
+    border-radius:               0px;
     expand:                      false;
     str:                         "";
     background-color:            @selected;
@@ -187,7 +187,7 @@ element {
     margin:                      0px;
     padding:                     6px;
     border:                      0px solid;
-    border-radius:               10px;
+    border-radius:               0px;
     border-color:                @border-colour;
     background-color:            transparent;
     text-color:                  @foreground-colour;
@@ -259,7 +259,7 @@ mode-switcher{
 button {
     padding:                     6px 10px;
     border:                      0px solid;
-    border-radius:               10px;
+    border-radius:               0px;
     border-color:                @border-colour;
     background-color:            @alternate-background;
     text-color:                  inherit;
@@ -276,7 +276,7 @@ message {
     margin:                      0px;
     padding:                     6px 10px;
     border:                      0px solid;
-    border-radius:               10px;
+    border-radius:               0px;
     border-color:                @border-colour;
     background-color:            @alternate-background;
     text-color:                  @foreground-colour;
