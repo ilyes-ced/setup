@@ -13,7 +13,7 @@ pub fn template(theme_name: Option<String>) -> Result<(), Box<dyn Error>> {
     let json_values = match theme_name {
         Some(name) => read_scheme_json(&Path::new(&name)).unwrap(),
         None => read_scheme_json(&Path::new(
-            "/home/dude/setup/scripts/themes/active/active.json",
+            "/home/tester/setup/scripts/themes/active/active.json",
         ))
         .unwrap(),
     };
@@ -33,6 +33,7 @@ pub fn template(theme_name: Option<String>) -> Result<(), Box<dyn Error>> {
 
 
     let _ = create_tmux(&json_values).unwrap();
+    let _ = create_zellij(&json_values).unwrap();
 
     let _ = biuld_new_configs().unwrap();
 
@@ -43,7 +44,7 @@ pub fn template(theme_name: Option<String>) -> Result<(), Box<dyn Error>> {
 
 fn create_json(s: &Value) -> Result<(), Box<dyn Error>> {
     let reg = Handlebars::new();
-    let template = fs::read_to_string("/home/dude/setup/scripts/templates/json.json").unwrap();
+    let template = fs::read_to_string("/home/tester/setup/scripts/templates/json.json").unwrap();
     let new_json = reg.render_template(
         &template,
         &json!({
@@ -68,14 +69,14 @@ fn create_json(s: &Value) -> Result<(), Box<dyn Error>> {
             "cursor": s["cursor"],
         }),
     )?;
-    let mut file = File::create("/home/dude/setup/scripts/themes/active/active.json").unwrap();
+    let mut file = File::create("/home/tester/setup/scripts/themes/active/active.json").unwrap();
     file.write_all(new_json.as_bytes()).unwrap();
     Ok(())
 }
 
 fn create_alacritty(s: &Value) -> Result<(), Box<dyn Error>> {
     let reg = Handlebars::new();
-    let template = fs::read_to_string("/home/dude/setup/scripts/templates/alacritty.yml").unwrap();
+    let template = fs::read_to_string("/home/tester/setup/scripts/templates/alacritty.toml").unwrap();
     let new_json = reg.render_template(
         &template,
         &json!({
@@ -100,14 +101,14 @@ fn create_alacritty(s: &Value) -> Result<(), Box<dyn Error>> {
             "cursor": s["cursor"],
         }),
     )?;
-    let mut file = File::create("/home/dude/setup/scripts/themes/active/alacritty.yml").unwrap();
+    let mut file = File::create("/home/tester/setup/scripts/themes/active/alacritty.toml").unwrap();
     file.write_all(new_json.as_bytes()).unwrap();
     Ok(())
 }
 
 fn create_polybar(s: &Value) -> Result<(), Box<dyn Error>> {
     let reg = Handlebars::new();
-    let template = fs::read_to_string("/home/dude/setup/scripts/templates/colors.ini").unwrap();
+    let template = fs::read_to_string("/home/tester/setup/scripts/templates/colors.ini").unwrap();
     let new_json = reg.render_template(
         &template,
         &json!({
@@ -132,14 +133,14 @@ fn create_polybar(s: &Value) -> Result<(), Box<dyn Error>> {
             "cursor": s["cursor"],
         }),
     )?;
-    let mut file = File::create("/home/dude/setup/scripts/themes/active/colors.ini").unwrap();
+    let mut file = File::create("/home/tester/setup/scripts/themes/active/colors.ini").unwrap();
     file.write_all(new_json.as_bytes()).unwrap();
     Ok(())
 }
 
 fn create_rofi(s: &Value) -> Result<(), Box<dyn Error>> {
     let reg = Handlebars::new();
-    let template = fs::read_to_string("/home/dude/setup/scripts/templates/rofi.rasi").unwrap();
+    let template = fs::read_to_string("/home/tester/setup/scripts/templates/rofi.rasi").unwrap();
     let new_json = reg.render_template(
         &template,
         &json!({
@@ -164,14 +165,14 @@ fn create_rofi(s: &Value) -> Result<(), Box<dyn Error>> {
             "cursor": s["cursor"],
         }),
     )?;
-    let mut file = File::create("/home/dude/setup/scripts/themes/active/rofi.rasi").unwrap();
+    let mut file = File::create("/home/tester/setup/scripts/themes/active/rofi.rasi").unwrap();
     file.write_all(new_json.as_bytes()).unwrap();
     Ok(())
 }
 
 fn create_i3(s: &Value) -> Result<(), Box<dyn Error>> {
     let reg = Handlebars::new();
-    let template = fs::read_to_string("/home/dude/setup/scripts/templates/colors").unwrap();
+    let template = fs::read_to_string("/home/tester/setup/scripts/templates/colors").unwrap();
     let new_json = reg.render_template(
         &template,
         &json!({
@@ -196,13 +197,13 @@ fn create_i3(s: &Value) -> Result<(), Box<dyn Error>> {
             "cursor": s["cursor"],
         }),
     )?;
-    let mut file = File::create("/home/dude/setup/scripts/themes/active/colors").unwrap();
+    let mut file = File::create("/home/tester/setup/scripts/themes/active/colors").unwrap();
     file.write_all(new_json.as_bytes()).unwrap();
     Ok(())
 }
 fn create_i3_bar(s: &Value) -> Result<(), Box<dyn Error>> {
     let reg = Handlebars::new();
-    let template = fs::read_to_string("/home/dude/setup/scripts/templates/bar_config").unwrap();
+    let template = fs::read_to_string("/home/tester/setup/scripts/templates/bar_config").unwrap();
     let new_json = reg.render_template(
         &template,
         &json!({
@@ -227,14 +228,14 @@ fn create_i3_bar(s: &Value) -> Result<(), Box<dyn Error>> {
             "cursor": s["cursor"],
         }),
     )?;
-    let mut file = File::create("/home/dude/setup/scripts/themes/active/bar_config").unwrap();
+    let mut file = File::create("/home/tester/setup/scripts/themes/active/bar_config").unwrap();
     file.write_all(new_json.as_bytes()).unwrap();
     Ok(())
 }
 
 fn create_dwm(s: &Value) -> Result<(), Box<dyn Error>> {
     let reg = Handlebars::new();
-    let template = fs::read_to_string("/home/dude/setup/scripts/templates/dwm").unwrap();
+    let template = fs::read_to_string("/home/tester/setup/scripts/templates/dwm").unwrap();
     let new_json = reg.render_template(
         &template,
         &json!({
@@ -259,13 +260,13 @@ fn create_dwm(s: &Value) -> Result<(), Box<dyn Error>> {
             "cursor": s["cursor"],
         }),
     )?;
-    let mut file = File::create("/home/dude/setup/suckless/dwm/config.def.h").unwrap();
+    let mut file = File::create("/home/tester/setup/suckless/dwm/config.def.h").unwrap();
     file.write_all(new_json.as_bytes()).unwrap();
     Ok(())
 }
 fn create_dmenu(s: &Value) -> Result<(), Box<dyn Error>> {
     let reg = Handlebars::new();
-    let template = fs::read_to_string("/home/dude/setup/scripts/templates/dmenu").unwrap();
+    let template = fs::read_to_string("/home/tester/setup/scripts/templates/dmenu").unwrap();
     let new_json = reg.render_template(
         &template,
         &json!({
@@ -290,13 +291,13 @@ fn create_dmenu(s: &Value) -> Result<(), Box<dyn Error>> {
             "cursor": s["cursor"],
         }),
     )?;
-    let mut file = File::create("/home/dude/setup/suckless/dmenu/config.def.h").unwrap();
+    let mut file = File::create("/home/tester/setup/suckless/dmenu/config.def.h").unwrap();
     file.write_all(new_json.as_bytes()).unwrap();
     Ok(())
 }
 fn create_st(s: &Value) -> Result<(), Box<dyn Error>> {
     let reg = Handlebars::new();
-    let template = fs::read_to_string("/home/dude/setup/scripts/templates/st").unwrap();
+    let template = fs::read_to_string("/home/tester/setup/scripts/templates/st").unwrap();
     let new_json = reg.render_template(
         &template,
         &json!({
@@ -321,13 +322,13 @@ fn create_st(s: &Value) -> Result<(), Box<dyn Error>> {
             "cursor": s["cursor"],
         }),
     )?;
-    let mut file = File::create("/home/dude/setup/suckless/st/config.def.h").unwrap();
+    let mut file = File::create("/home/tester/setup/suckless/st/config.def.h").unwrap();
     file.write_all(new_json.as_bytes()).unwrap();
     Ok(())
 }
 fn create_tmux(s: &Value) -> Result<(), Box<dyn Error>> {
     let reg = Handlebars::new();
-    let template = fs::read_to_string("/home/dude/setup/scripts/templates/catppuccin-mocha.tmuxtheme").unwrap();
+    let template = fs::read_to_string("/home/tester/setup/scripts/templates/catppuccin-mocha.tmuxtheme").unwrap();
     let new_json = reg.render_template(
         &template,
         &json!({
@@ -352,7 +353,38 @@ fn create_tmux(s: &Value) -> Result<(), Box<dyn Error>> {
             "cursor": s["cursor"],
         }),
     )?;
-    let mut file = File::create("/home/dude/.config/tmux/plugins/tmux/catppuccin-mocha.tmuxtheme").unwrap();
+    let mut file = File::create("/home/tester/.config/tmux/plugins/tmux/catppuccin-mocha.tmuxtheme").unwrap();
+    file.write_all(new_json.as_bytes()).unwrap();
+    Ok(())
+}
+fn create_zellij(s: &Value) -> Result<(), Box<dyn Error>> {
+    let reg = Handlebars::new();
+    let template = fs::read_to_string("/home/tester/setup/scripts/templates/config.kdl").unwrap();
+    let new_json = reg.render_template(
+        &template,
+        &json!({
+            "color0": s["color0"],
+            "color1": s["color1"],
+            "color2": s["color2"],
+            "color3": s["color3"],
+            "color4": s["color4"],
+            "color5": s["color5"],
+            "color6": s["color6"],
+            "color7": s["color7"],
+            "color8": s["color8"],
+            "color9": s["color9"],
+            "color10": s["color10"],
+            "color11": s["color11"],
+            "color12": s["color12"],
+            "color13": s["color13"],
+            "color14": s["color14"],
+            "color15": s["color15"],
+            "background": s["background"],
+            "foreground": s["foreground"],
+            "cursor": s["cursor"],
+        }),
+    )?;
+    let mut file = File::create("/home/tester/.config/zellij/config.kdl").unwrap();
     file.write_all(new_json.as_bytes()).unwrap();
     Ok(())
 }
@@ -369,7 +401,7 @@ fn read_scheme_json(path: &Path) -> Result<Value, ()> {
 fn remove_old_configs() -> Result<(), Box<dyn Error>>{
     let _ = Command::new("rm")
         .arg("config.h")
-        .current_dir("/home/dude/setup/suckless/dwm")
+        .current_dir("/home/tester/setup/suckless/dwm")
         .output()
         .expect("Failed to execute command");
     //println!("status: {}", output.status);
@@ -379,7 +411,7 @@ fn remove_old_configs() -> Result<(), Box<dyn Error>>{
 
     let _ = Command::new("rm")
         .arg("config.h")
-        .current_dir("/home/dude/setup/suckless/dmenu")
+        .current_dir("/home/tester/setup/suckless/dmenu")
         .output()
         .expect("Failed to execute command");
     //println!("status: {}", output.status);
@@ -389,7 +421,7 @@ fn remove_old_configs() -> Result<(), Box<dyn Error>>{
 
     let _ = Command::new("rm")
         .arg("config.h")
-        .current_dir("/home/dude/setup/suckless/st")
+        .current_dir("/home/tester/setup/suckless/st")
         .output()
         .expect("Failed to execute command");
     //println!("status: {}", output.status);
@@ -406,7 +438,7 @@ fn biuld_new_configs() -> Result<(), Box<dyn Error>>{
         .arg("make")
         .arg("clean")
         .arg("install")
-        .current_dir("/home/dude/setup/suckless/dwm/")
+        .current_dir("/home/tester/setup/suckless/dwm/")
         .output()
         .expect("Failed to execute command");
     //println!("status: {}", output.status);
@@ -418,7 +450,7 @@ fn biuld_new_configs() -> Result<(), Box<dyn Error>>{
         .arg("make")
         .arg("clean")
         .arg("install")
-        .current_dir("/home/dude/setup/suckless/dmenu/")
+        .current_dir("/home/tester/setup/suckless/dmenu/")
         .output()
         .expect("Failed to execute command");
     //println!("status: {}", output.status);
@@ -430,7 +462,7 @@ fn biuld_new_configs() -> Result<(), Box<dyn Error>>{
         .arg("make")
         .arg("clean")
         .arg("install")
-        .current_dir("/home/dude/setup/suckless/st/")
+        .current_dir("/home/tester/setup/suckless/st/")
         .output()
         .expect("Failed to execute command");
     //println!("status: {}", output.status);

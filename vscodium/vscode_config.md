@@ -79,7 +79,7 @@
     "git.enableSmartCommit": true,
     "git.confirmSync": false,
 
-    "dart.flutterSdkPath": "/home/dude/flutter",
+    "dart.flutterSdkPath": "/home/tester/flutter",
     "[dart]": {
         "editor.formatOnSave": true,
         "editor.formatOnType": true,
