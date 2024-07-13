@@ -302,6 +302,8 @@ fn process_custom(args: Vec<String>) {
     println!("setting the gtk themes\n");
     gtk_theme::main();
     set_wallpaper(wallpaper_path);
+
+    //copy the selected theme to pywal cache
 }
 
 fn print_table() {
