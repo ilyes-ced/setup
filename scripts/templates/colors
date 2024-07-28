@@ -33,7 +33,7 @@ bar {
 	status_command i3status -c ~/setup/scripts/themes/active/bar_config
     id main-bar
     position bottom
-    mode dock
+    mode invisible
     hidden_state show
     modifier Mod1
     bindsym button2 workspace back_and_forth
