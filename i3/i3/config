@@ -136,10 +136,6 @@ hide_edge_borders none
 ##
 ## Syntax: smart_borders on|off|no_gaps
 
-gaps inner 5 
-gaps outer 0
-smart_borders on
-smart_gaps on
 #------
 
 ## Don’t focus window upon opening
@@ -331,4 +327,4 @@ exec_always --no-startup-id ~/.config/i3/scripts/i3_autostart
 
 
 #exec_always --no-startup-id ~/setup/scripts/target/release/change_theme --type=pywal --wallpaper=random --backend=random
-exec_always --no-startup-id feh --bg-fill /home/ilyes/setup/scripts/themes/active/wallpaper
+exec_always --no-startup-id feh --bg-fill /home/dude/setup/scripts/themes/active/wallpaper

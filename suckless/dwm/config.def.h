@@ -9,13 +9,13 @@ static const char *fonts[]          = { "JetBrains Mono Nerd Font:size=10" };
 static const char dmenufont[]       = "JetBrains Mono Nerd Font:size=10";
 
 
-static const char norm_fg[] = "#B3B1AD";
-static const char norm_bg[] = "#0A0E14";
-static const char norm_border[] = "#4D5566";
+static const char norm_fg[] = "#F8DCC0";
+static const char norm_bg[] = "#050404";
+static const char norm_border[] = "#4E7CBF";
 
-static const char sel_fg[] = "#B3B1AD";
-static const char sel_bg[] = "#C2D94C";
-static const char sel_border[] = "#B3B1AD";
+static const char sel_fg[] = "#F8DCC0";
+static const char sel_bg[] = "#4AB118";
+static const char sel_border[] = "#F8DCC0";
 
 static const char *colors[][3]      = {
     /*               fg           bg         border                         */

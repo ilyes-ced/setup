@@ -9,9 +9,9 @@ static const char *fonts[] = {
 static const char *prompt      = NULL;      /* -p  option; prompt to the left of input field */
 static const char *colors[SchemeLast][2] = {
 	/*     fg         bg       */
-	[SchemeNorm] = { "#B3B1AD", "#0A0E14" },
-	[SchemeSel] = { "#B3B1AD", "#FF3333" },
-	[SchemeOut] = { "#B3B1AD", "#95E6CB" },
+	[SchemeNorm] = { "#F8DCC0", "#050404" },
+	[SchemeSel] = { "#F8DCC0", "#BD0013" },
+	[SchemeOut] = { "#F8DCC0", "#70A598" },
 };
 /* -l option; if nonzero, dmenu uses vertical list with given number of lines */
 static unsigned int lines      = 0;
