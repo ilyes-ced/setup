@@ -1,4 +1,3 @@
-```json
 {
     "emmet.includeLanguages": {
         "javascript": "javascriptreact"
@@ -100,7 +99,5 @@
     "editor.fontFamily": "'JetBrainsMono Nerd Font'",
     "editor.codeLensFontFamily": "JetBrainsMono Nerd Font",
     "editor.fontVariations": false,
-    "workbench.colorTheme": "Blueberry Banana",
+    "workbench.colorTheme": "GitHub Dark Default",
 }
-```
-
